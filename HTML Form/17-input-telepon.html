@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar input telepon</title>
+</head>
+<body>
+    <form action="">
+        <label for="telepon">Telepon :</label>
+        <input type="tel" name="no_telepon" id="no_telepon" pattern="\+62[0-9]{9,15}"> 
+        <input type="submit" value="Simpan">
+    </form>
+</body>
+</html>
+
+<!-- pola pattern disesuikan agar muncul output sesuai format 
+
+pattern="\+62[0-9]{9,15}" 
+
++6212456789101112 = minimal 9 digit setelah +62
+-->
