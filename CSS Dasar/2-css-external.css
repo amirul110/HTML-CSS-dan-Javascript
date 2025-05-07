@@ -1,0 +1,14 @@
+/* ini adalah komentar satu baris */
+h1 {
+    color:rebeccapurple;
+    font-size: 25px;
+}
+
+/* ini
+adalah komentar
+satu baris
+*/
+h2 {
+    color:blue;
+    font-size: 15px;
+}
