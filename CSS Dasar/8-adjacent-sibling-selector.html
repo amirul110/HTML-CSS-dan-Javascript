@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar adjacent sibling selector</title>
+<style>
+   section+ div   + p {
+        color : red
+    }
+</style>
+</head>
+
+<body>
+    <section>
+        
+    </section>
+    <div>
+       <p>d</p>
+       ini tidak dipilih
+    </div>
+    <p>ini dipilih</p> <!-- dipilih karena berada setelah tag div dan berada di parent yang sama dengan div yaitu parent body-->
+    <p>ini tidak dipilih</p>
+</body>
+</html>
