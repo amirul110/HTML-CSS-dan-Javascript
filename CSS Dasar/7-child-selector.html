@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar child selector</title>
+    <style>
+        div > p {
+            color: rgb(8, 180, 48);
+        }
+    </style>
+</head>
+<body>
+    
+    <div> <!-- div sbgai parent-->
+        <article>
+            <p>ini tidak dibilih</p>
+        </article>
+        <p>ini dipilih</p> <!-- hanya ini yang berubah hijau,karena hanya ini yang berada di parent div-->
+    <p>ini pagi</p>
+    </div>
+    <p>ini tidak dipilih</p>
+</body>
+</html>
