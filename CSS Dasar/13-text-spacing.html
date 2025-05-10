@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#pagi{
+    text-indent:3em; /*untuk jarak diawal text/paragraf */
+}
+
+#malam{
+    letter-spacing: 9px; /* mengatur jarak antar huruf */
+}
+
+#sore{ /*mengatur jarak antar baris ,pengaruh di atas dan dibawah yang gunakan property ini akan berjarak */
+    line-height: 100px;
+}
+
+#senja{
+    word-spacing: 62px; /* mengatur jarak antar kata */
+}
+
+#roda{
+    width: 350px; /* mengatur bagaimana whitespace ditampilkan */
+    border: 24px green solid;
+    white-space: none;
+    margin-bottom: 60px;
+    padding: 20px;
+
+}
+
+.container {
+            width: 300px;
+            border: 10px solid #ccc;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        
+        .normal {
+            white-space: normal;
+        }
+        
+        .nowrap {
+            white-space: nowrap;
+        }
+        
+        .pre {
+            white-space: pre;
+        }
+        
+        .pre-wrap {
+            white-space: pre-wrap;
+        }
+        
+        .pre-line {
+            white-space: pre-line;
+        }
+</style>
+<body>
+    <p id="pagi">pagi selamat menjalankan aktifitas</p>
+    <p id="malam">malam selamat beristrirahat</p>
+    <p id="sore">sore selamat bersantai</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic aliquam impedit eius id! Aliquam recusandae eius sit non enim nemo, magnam eligendi unde hic, consequuntur inventore autem adipisci facere placeat.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quam facere culpa voluptas temporibus itaque natus aperiam non veritatis placeat ipsa praesentium pariatur sapiente deserunt cupiditate a numquam, ab mollitia.</p>
+    <p id="senja">senja ini digunakan untuk word-spacing</p>
+
+    <p id="roda">roda ini untuk mengatur bagaimana whitespace ditampilkan 
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae consectetur fuga cum facere corporis veniam, aut quidem odio delectus quo hic consequatur, nihil quae ex debitis. Velit vitae facilis assumenda?</p>
+
+
+     <h2>Perbandingan Nilai White-space</h2>
+    
+    <div class="container">
+        <h3>normal (default):</h3>
+        <p class="normal">Ini adalah teks dengan      banyak spasi dan 
+        baris baru. Browser akan mengabaikan spasi ekstra dan baris baru.</p>
+    </div>
+    
+    <div class="container">
+        <h3>nowrap:</h3>
+        <p class="nowrap">Ini adalah teks dengan      banyak spasi dan 
+        baris baru. Teks tidak akan wrap ke baris baru, tetap satu baris.</p>
+    </div>
+    
+    <div class="container">
+        <h3>pre (preserve):</h3>
+        <p class="pre">Ini adalah teks dengan      banyak spasi dan 
+        baris baru. Spasi dan baris baru dipertahankan seperti kode aslinya.</p>
+    </div>
+    
+    <div class="container">
+        <h3>pre-wrap:</h3>
+        <p class="pre-wrap">Ini adalah teks dengan      banyak spasi dan 
+        baris baru. Spasi dan baris baru dipertahankan, tapi teks akan wrap jika perlu.</p>
+    </div>
+    
+    <div class="container">
+        <h3>pre-line:</h3>
+        <p class="pre-line">Ini adalah teks dengan      banyak spasi dan 
+        baris baru. Baris baru dipertahankan, tapi spasi berlebih dikurangi.</p>
+    </div>
+</body>
+</html>
