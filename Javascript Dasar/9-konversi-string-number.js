@@ -15,7 +15,7 @@ console.log(typeof manu);
 
 let sabun = "2929.229299292";
 let tulisan = Number(sabun); // konversi dari string ke number (bilangan bulat atau pecahan)
-console.log(tulisan) ;
+console.log(tulisan) ; //2929.229299292  
 
 console.log(typeof tulisan);
 
