@@ -4,13 +4,13 @@ let kucing = 10
 let ayam = "10"
 
 let hasil = jam > sepatu
-console.log(hasil)
+console.log(hasil) // true
 
 let kacamata = jam < sepatu
-console.log(kacamata)
+console.log(kacamata) // false
 
 let gajah = jam === "ayam"
 console.log(gajah) //false beda tipe data
 
 let ikan = jam !== kucing
-console.log(ikan)
+console.log(ikan) // false
