@@ -15,7 +15,7 @@ console.log(typeof manu);
 
 let sabun = "2929.229299292";
 let tulisan = Number(sabun); // konversi dari string ke number (bilangan bulat atau pecahan)
-console.log(tulisan) ; //2929.229299292  
+console.log(tulisan) ;
 
 console.log(typeof tulisan);
 
@@ -26,3 +26,18 @@ let sejarah = 123;
 const kuning = sejarah.toString() // konversi number ke string
 console.log(kuning) // "123"
 console.log(typeof kuning) // string
+
+
+let a = isNaN(kuning)
+console.log(a) // false,jika bukan Not a Number
+
+let b = isNaN(tulisan)
+console.log(b) // false
+
+let d = 10
+let c = isNaN(d)
+console.log(d)
+
+let e = "aku"
+let f = isNaN(e) // true atau benar jika Not a Number 
+console.log(f) // true
