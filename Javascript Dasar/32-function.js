@@ -27,4 +27,33 @@ function nilaiUjian(nama, nilaiAkhir) {
 }
 
 const hasil = nilaiUjian("joko",89)
-console.log(` ${hasil}`)
+console.log(hasil)
+
+// function multiple value
+function getFinalScore(value) {
+    if(value > 90){
+        return "A";
+    } else if (value > 80) {
+        return "B";
+    } else if (value > 70) {
+        return "C";
+    } else {
+        return "D";
+    }
+}
+
+
+console.log(getFinalScore(29));
+
+// kode menghentikan eksekusi dengan return
+
+function isContains(array,searchValue){
+    for(const element of array){
+        if(element === searchValue){
+            return true;
+        }
+    }
+    return false;
+}
+
+console.log(isContains([1,2,3,4,5,6,7,8,9,10],5))
