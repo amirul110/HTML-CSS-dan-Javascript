@@ -16,10 +16,11 @@ let say = function (nama) {
 say("Eko")
 
 
-function berikuNama(callback) {
-    callback("eko");
-}
+ // anonymous function di kirim sebgai parameter
+ function giveMeName(aku) {
+    aku("eko") // ditulis sbg function dan bernilai "eko"
+ }
 
-berikuNama(function (nama) {
-    console.log(`Hello ${nama}`);
-})
+ giveMeName(function (nama){
+    console.info(`Hello ${nama}`); // (nama) = (aku) dimana aku bernilai eko
+ });
