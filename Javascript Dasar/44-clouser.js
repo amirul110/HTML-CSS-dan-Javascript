@@ -30,5 +30,5 @@ function createAdder(value){
 }
 
 const addTwo = createAdder(2);
-console.log(addTwo(10));
-console.log(addTwo(20));
+console.log(addTwo(10)); //(10) sbg nilai dari parameter param pada func dalam func  add
+console.log(addTwo(20)); // //(20) sbg nilai dari parameter param pada func dalam func  add
