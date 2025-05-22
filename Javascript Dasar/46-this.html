@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>halo</h1>
+    <script>
+
+        // this untuk mengetahui siapa pemilik kode
+// output this bisa berubah ubah tergantung dimana menulis this dan cara panggilnya 
+
+
+console.log(this) // windows
+
+function testThis(){
+    console.log(this) // windows
+}
+
+let siang = {
+na : "aku",
+sayhi : function (name){
+console.log(`hi ${name}, my name is ${this.na}`) // this.na = siang.na
+}}
+
+siang.sayhi("arjunoooo") // hi arjunoooo, my name is aku
+
+
+function outer(){
+
+    function inner(){
+        console.log(this)
+    }
+
+    inner();
+}
+outer() // window
+
+
+
+// Contoh kenapa this lebih bagus:
+const person = {
+    name: "eko",
+    sayHello: function(name) {
+        console.log(`Hi ${name}, my name is ${this.name}`);
+    }
+};
+
+const another = {
+    name: "siti",
+    sayHello: person.sayHello
+};
+
+person.sayHello("andi");   // Hi andi, my name is eko
+another.sayHello("andi");  // Hi andi, my name is siti ✅ karena pakai this
+
+// Kalau kamu pakai person.name, hasilnya akan tetap "eko", meskipun user.name sudah berubah → jadi tidak fleksibel.
+    </script>
+</body>
+</html>
