@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <script>
+        function Person(firstName, lastBang){
+            this.namaKu = firstName;
+            this.namaTer = lastBang;
+            this.sayHiii = function(name){
+                console.log(`hiii ${name}, my name is ${this.namaKu}`)
+            }
+        }
+
+        // cara mengakaesnya inspek element -> console
+        // ditambahkan di [[Prototype]] : Object
+        Person.prototype.HiWelcome = function (nama){ 
+            console.log(`Selamat Datang ${nama}`)
+        }
+
+                // ditambahkan di [[Prototype]] : Object
+        Person.prototype.run = function (){
+            console.log(`${this.firstName} is running `);
+        }
+
+        const eko = new Person("eko","susanto");
+        eko.sayBye = function (){ // hanya menambah func di object eko
+            console.log("Good Bye")
+        }
+
+        const rahmad = new Person("rahmad","hidayat");
+        rahmad.firstName = "rahmad";
+
+        rahmad.HiWelcome("ekoo"); // Selamat Datang ekoo
+        rahmad.run(); // rahmad is running 
+        console.log(eko);
+        console.log(rahmad);
+    </script>
+</body>
+</html>
