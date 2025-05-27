@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>method di class </title>
+</head>
+<body>
+    <script>
+        class Person {
+            
+            constructor(name){
+                this.nama = name;
+                // tidak direkomendasikan,karena penulisan property gunakan func akan terletak di object instance.
+                this.sayHello = function (nama) {
+                    console.log(`hello ${nama}, my name is ${this.nama}`)
+                };
+
+            }
+                // di rekomendasikan seperti ini,karena akan terletak di prototype
+                sayMakan(nama) {
+                    console.info(`hallo ${nama} selamat makan `);
+                }
+
+        }
+
+        const eko = new Person("eko");
+        console.info(eko)
+        eko.sayHello("anwar")
+        eko.sayMakan("onana"); // akan berada di <protoype> lebih direkomendasikan,gunakan firefox
+
+        const budi = new Person("budi");
+        console.info(budi);
+
+    </script>
+</body>
+</html>
