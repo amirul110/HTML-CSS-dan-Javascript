@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>property di class</title>
+</head>
+<body>
+     <script>
+        class Person {
+            constructor(name,age){
+                this.name = name;
+                this.umur = age;
+            }
+        }
+
+        const eko = new Person("eko",20);
+
+          // Menambahkan property lewat object
+        eko.address = "Jakarta";
+        eko["gender"] = "laki-laki";
+
+        console.info(eko);
+        console.info(eko.name);
+        console.info(eko.umur);
+        console.info(eko.address);
+        console.info(eko.gender)
+
+      
+
+        const budi = new Person("budi",39)
+        console.info(budi);
+
+     </script>
+</body>
+</html>
