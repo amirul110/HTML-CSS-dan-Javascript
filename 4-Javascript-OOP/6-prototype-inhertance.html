@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype inheritance</title>
+</head>
+<body>
+    <script>
+        function Employee(name){
+            this.name = name 
+        }
+
+        function Manager(name){
+            this.name = name;
+        }
+
+        // cara salah, karena mengganti Manager.prototype dengan nilai Employee.prototype
+        // Employee.prototype =  Manager.prototype;
+        
+
+        // Manager diberi akses Employee.prototype bukan menyimpan value,func employee.prototype ke Manager.prototype
+        Manager.prototype = Object.create(Employee.prototype)
+
+
+        /*
+        Maka struktur prototype-nya menjadi seperti ini:
+
+manager sbg object
+  ↓
+Manager.prototype
+  ↓
+Employee.prototype
+
+    Jadi, saat JavaScript memanggil manager.walk():
+
+        Cek apakah walk ada di manager → tidak ada
+
+        Cek di Manager.prototype → tidak ada
+
+        Cek di Employee.prototype → ADA ✅ → Maka dipanggil
+
+    Jadi JS menelusuri rantai prototype, bukan menyalin isi Employee.prototype.
+    */
+       Manager.prototype.sayHallo = function (name){
+            console.log(`hi ${name} , my name is Manager ${this.name}`)
+        }
+
+          Employee.prototype.sayHallo = function (name){
+            console.log(`hallo ${name} , my name is Employee ${this.name}`)
+        }
+
+        Employee.prototype.walk = function(){
+            console.log(`${this.name} is walking`);
+        }
+
+        
+         
+
+        const employee = new Employee("Budi");
+        employee.sayHallo("Joko");
+        employee.walk();
+
+        const manager = new Manager("Eko");
+        manager.sayHallo("Joko");
+        manager.walk();
+
+        console.log(employee);
+        console.log(manager);
+    </script>
+</body>
+</html>
