@@ -9,14 +9,23 @@
     
     <script>
 
+        // object ->  manager.prototype -> Object.prototype
         class Employee {
             sayHello(name){
                 console.info(`hello ${name} , my name is employee ${this.name}`)
             }
         }
 
+        // object -> manager.prototype -> employee.prototype ->  Object.prototype
+      
         class Manager extends Employee {
-            sayHello(nami){
+            // ketika di class Manager tidak membuat func sayHallo maka,akan dicek
+            // 1. di cek di object ada func sayHello atau tidak , jika ada ambil jika tidak
+            // 2. jika tidak ada naik ke  manager.prototype -> jika ada ambil,jika tidak 
+            // 3. jika tidak ada naik ke employee.prototype (karena extends) -> jika ada ambil, jika tidak
+            // 4. jika tidak ada naik  ke Object.property -> jika tidak ada errror
+            sayHello(nami){ 
+                
                 console.info(`hello ${nami} , my name is manager ${this.name}`)
             }
         }
