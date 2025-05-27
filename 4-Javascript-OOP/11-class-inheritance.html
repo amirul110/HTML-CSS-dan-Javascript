@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class nheritance</title>
+</head>
+<body>
+    
+    <script>
+
+        class Employee {
+            sayHello(name){
+                console.info(`hello ${name} , my name is employee ${this.name}`)
+            }
+        }
+
+        class Manager extends Employee {
+            sayHello(nami){
+                console.info(`hello ${nami} , my name is manager ${this.name}`)
+            }
+        }
+
+        const budi = new Employee();
+        budi.name = "budi";
+        budi.sayHello("sahid");
+
+        const eko = new Manager();
+        eko.name = "eko";
+        eko.sayHello("irfan")
+
+        console.info(budi);
+        console.info(eko)
+    </script>
+</body>
+</html>
