@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>super method</title>
+</head>
+<body>
+    
+    <script>
+        class Shape {
+            unto(){
+                console.info("Paint Shape")
+            }
+        }
+
+        class Circle extends Shape {
+            paint(){
+                console.info("Paint Circle");
+                // super() tidak harus di tulis pertama 
+                super.unto();   // untuk mengakses func kelas induk di kelas anak                            
+            }
+        }
+
+        const sapu = new Circle
+        sapu.paint();
+    </script>
+</body>
+</html>
