@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Employee {
+
+            constructor(jokowi) { // menulis constructor , akan di punyai/ wariskan ke smua yang extends ke Employee
+                this.firstName = jokowi
+            }
+
+            sayHello(nami) {
+                console.info(`hello ${nami} , my name is ${this.firstName}`)
+            }
+        }
+
+        class Manager extends Employee {
+            
+            // gunakan super() agar punya constructor sendiri
+            // sekalipun class Employee tidak punya constructor
+            // tetap tuliskan super(),jika Manager ingin punya constructor sendiri
+            constructor(name,last) {
+                 super(name); // harus ditulis sebelum this.
+                this.lastName = last;
+               
+            }
+
+            sayDatang(namo){
+                console.info(`hello ${namo} , my name is manager ${this.firstName} ${this.lastName}`)
+            }
+        }
+
+        const budi = new Employee("budi");
+        budi.sayHello("Joko");
+
+        const eko = new Manager("eko","sarjono");
+        eko.sayDatang("marjuki")
+        eko.sayHello("roni")
+
+        console.log(budi);
+        console.log(eko);
+    </script>
+</body>
+</html>
