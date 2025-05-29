@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Class Field</title>
+</head>
+<body>
+    <script>
+        class Customer {
+            firstNameField;
+            lastName;
+            #balance = 0;
+
+            constructor(first, last, bal) {
+                this.firstName = first;
+                this.lastName = last;
+                this.#balance = bal;
+            }
+
+            get balance() {
+                return this.#balance; // keluar dari getter dan kembalikan nilai
+            }
+
+          
+            
+        }
+
+        const eko = new Customer("eko", "kanedy", 100);
+        console.log(eko)
+        console.log(eko.balance); // Ini HARUS mencetak 100 di console
+    
+         const a = eko.balance 
+        console.log(a) // 100
+    </script>
+</body>
+</html>
