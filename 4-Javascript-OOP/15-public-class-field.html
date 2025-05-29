@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Public Class Field </title>
+</head>
+<body>
+    
+    <script>
+
+        class Customer {
+
+            // public class ini termasuk public , bisa diakses darimana saja
+            firstNameField; 
+            lastName; // lastName pada public class dan constructor mengacu pada variabel yang sama
+            balance = 0;
+
+            constructor(first, last,bal){
+                this.firstName = first;
+                this.lastName = last;
+             
+            }
+        }
+
+        
+        const eko = new Customer("eko",'kanedy',100);
+        console.info(eko);
+        console.info(eko.balance)
+    </script>
+</body>
+</html>
