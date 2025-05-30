@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> throw error </title>
+</head>
+<body>
+    
+    <script>
+
+        class MathUtil {
+
+            static sum(...numbers){
+                if (numbers.length === 0) {
+                    throw new Error("Total parameter harus lebih dari 0");
+                }
+
+                let result = 0;
+                for (const angka of numbers){
+                    result += angka;
+                }
+                return result;
+            }
+        }
+
+        console.info(MathUtil.sum(5,5));
+
+
+
+        try {
+        
+        console.info(MathUtil.sum(2,9)) // 11
+        console.info(MathUtil.sum()); //error ditangkap
+
+         
+        } catch (unta){
+           console.error(unta.stack)
+            console.error("Terjadi error di try : " + unta.message)
+            
+        }
+
+        console.info("PAGIII BANGG")
+    </script>
+</body>
+</html>
