@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> operator instanceof di class Inheritance </title>
+</head>
+<body>
+    
+    <script>
+
+        class Guru {
+
+
+        }
+
+        class Siswa extends Guru {
+
+        }
+
+        const jarwo = new Guru();
+        const arjuna = new Siswa();
+
+        console.info(jarwo instanceof Guru); // true
+        console.info(jarwo instanceof Siswa); // false 
+
+        // true karena Siswa adalah turunan dari Guru 
+        console.info(arjuna instanceof Guru); // true
+        console.info(arjuna instanceof Siswa); // true
+        
+    </script>
+</body>
+</html>
