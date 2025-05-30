@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> private method </title>
+</head>
+<body>
+    
+    <script>
+
+        class Person {
+
+            say(name){
+                if (name) {
+                    this._sayWithName(name)
+                } else {
+                    this.#sayWithoutName()
+                }
+            }
+
+            _sayWithName(nami){
+                console.info(`hello ${nami}`)
+            }
+
+                      // private method dengan #, hanya bisa diakses di class saja
+            #sayWithoutName(){
+                console.info(`hello sir`)
+            }
+
+            // getter tidak bisa akses # private 
+            get cetakName(){
+                return this._sayWithName.bind(this)
+            }
+        }
+
+        const eko = new Person();
+        const alu = eko.cetakName;
+
+        alu("amirul")
+        console.info(eko.cetakName) // hello amirul
+
+        console.info(eko)
+
+        eko.say() // hello sir
+
+        a = eko._sayWithName("unta") // hello unta
+        // console.log(a)
+
+    </script>
+</body>
+</html>
