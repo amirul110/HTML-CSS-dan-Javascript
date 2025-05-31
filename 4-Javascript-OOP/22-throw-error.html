@@ -13,6 +13,8 @@
 
             static sum(...numbers){
                 if (numbers.length === 0) {
+                    // parameter throw akan di lempar ke console browser,
+                    // jika  bernilai benar  bahwa tidak ada parameter
                     throw new Error("Total parameter harus lebih dari 0");
                 }
 
@@ -34,34 +36,12 @@
         console.info(MathUtil.sum()); //error ditangkap
 
          
-        } catch (unta){
+        } catch (unta){ // unta sebgai instance object,class Error ,
+        //  dimana unta menyimpan pesan throw dan detail error  yang terjadi di class Error
            console.error(unta.stack)
             console.error("Terjadi error di try : " + unta.message)
             
         }
-
-        /*
-
-        🔄 Urutan Proses Kerjanya (Visualisasi)
-
-    Fungsi MathUtil.sum() dipanggil tanpa argumen
-
-    Karena numbers.length === 0, maka:
-
-throw new Error("Total parameter harus lebih dari 0");
-
-dilempar ke luar
-
-Lompat ke blok catch (unta)
-
-unta sekarang adalah objek dari class Error
-
-Kamu bisa akses:
-
-    unta.message ➜ isi pesan dari throw
-
-    unta.stack ➜ detail lokasi dan jalur eksekusi
-*/
 
         console.info("PAGIII BANGG")
     </script>
