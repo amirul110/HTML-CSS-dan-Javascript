@@ -13,8 +13,6 @@
 
             static sum(...numbers){
                 if (numbers.length === 0) {
-                    // parameter throw akan di lempar ke console browser,
-                    // jika  bernilai benar  bahwa tidak ada parameter
                     throw new Error("Total parameter harus lebih dari 0");
                 }
 
@@ -26,10 +24,10 @@
             }
         }
 
-        console.info(MathUtil.sum(5,5));
+        console.info(MathUtil.sum(5,5)); // 10
 
 
-
+        // error handling
         try {
         
         console.info(MathUtil.sum(2,9)) // 11
@@ -38,12 +36,15 @@
          
         } catch (unta){ // unta sebgai instance object,class Error ,
         //  dimana unta menyimpan pesan throw dan detail error  yang terjadi di class Error
-           console.error(unta.stack)
-            console.error("Terjadi error di try : " + unta.message)
+
+           console.error(unta.stack) /* sum@http://127.0.0.1:5500/22-throw-error.html:16:27
+@http://127.0.0.1:5500/22-throw-error.html:34:31 */
+
+            console.error("Terjadi error di try : " + unta.message) // Terjadi error di try : Total parameter harus lebih dari 0
             
         }
 
-        console.info("PAGIII BANGG")
+        console.info("PAGIII BANGG") // PAGII BANG, tetap di eksekusi walau error di block catch
     </script>
 </body>
 </html>
