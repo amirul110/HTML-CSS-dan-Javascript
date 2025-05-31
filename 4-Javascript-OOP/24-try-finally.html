@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> try finally </title>
+</head>
+<body>
+    
+    <script>
+
+/*
+block try return value = 1 , sebelum keluar dari func next block finally incremenct value menjadi value = 2, 
+tapi yang di cetak kelayar hanya value = 1 karena = 1 nilai tersebut yang di return kan di block try 
+*/
+        class Counter {
+            constructor(){
+                this.value = 1;
+            }
+
+            next() {
+                try {
+                    return this.value; // kembalikan nilai 1
+                } finally {
+                    this.value++; // sebelum keluar dari func, 1 + 1 karena increment
+                }
+            }
+        }
+
+        const tambah = new Counter();
+        console.info(tambah.next()); // 1, walau value = 2 tapi return berada saat value = 1
+        console.info(tambah.next());
+        console.info(tambah.next());
+    </script>
+</body>
+</html>
