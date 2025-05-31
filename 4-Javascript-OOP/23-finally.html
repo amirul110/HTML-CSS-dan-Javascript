@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> throw error </title>
+</head>
+<body>
+    
+    <script>
+
+        class MathUtil {
+
+            static sum(...numbers){
+                if (numbers.length === 0) {
+                    throw new Error("Total parameter harus lebih dari 0");
+                }
+
+                let result = 0;
+                for (const angka of numbers){
+                    result += angka;
+                }
+                return result;
+            }
+        }
+
+        console.info(MathUtil.sum(5,5)); // 10
+
+
+        // error handling
+        try {
+        
+        console.info(MathUtil.sum(2,9)) // 11
+        console.info(MathUtil.sum()); //error ditangkap
+
+         
+        } catch (unta){ // unta sebgai instance object,class Error ,
+        //  dimana unta menyimpan pesan throw dan detail error  yang terjadi di class Error
+
+           console.error(unta.stack) /* sum@http://127.0.0.1:5500/22-throw-error.html:16:27
+@http://127.0.0.1:5500/22-throw-error.html:34:31 */
+
+            console.error("Terjadi error di try : " + unta.message) // Terjadi error di try : Total parameter harus lebih dari 0
+            
+        } finally { // block finally, akan tetap terjadi ntah terjadi error atau tidak
+            console.info("kode program selesai") // kode program selesai
+        }
+
+        console.info("PAGIII BANGG") // PAGII BANG, tetap di eksekusi walau error di block catch
+    </script>
+</body>
+</html>
