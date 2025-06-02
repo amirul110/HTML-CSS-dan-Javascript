@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> class error manual </title>
+</head>
+<body>
+    
+    <script>
+
+
+        class ValidationError extends Error {
+            constructor(message, field) {
+                super(message); // message ini isinya "Total parameter harus lebih dari 0"
+                this.property = field;
+                this.name = "ValidationError";
+            }
+        }
+
+        class MathUtil {
+
+            static sum(...numbers){
+
+                if (numbers.length === 0) {
+                    throw new ValidationError ("Total parameter harus lebih dari 0", "numbers");
+                }
+
+                let total = 0;
+                for (const angka of numbers){
+                    total += angka;
+                }
+
+                return total 
+            }
+        }
+
+        try {
+            console.info(MathUtil.sum()); // error, langsung ke blok catch
+            console.info("eko"); // tidak di eksekusi, skip langsung ke block catch
+        } catch(melon) { // melon merpakan instance dari ValidationError
+            if (melon instanceof ValidationError){
+                console.info(`terjadi error di field ${melon.property} dengan error ${melon.message}`)
+            } else {
+                console.info(`terjadi error : ${melon.message}`)
+            }
+
+        } finally {
+            console.info("Program selesai");
+        }
+
+        console.info("kanedy")
+
+
+        const err = new ValidationError("Data kosong", "username");
+
+// console.log(err instanceof Error);           // true
+// console.log(err instanceof ValidationError); // true
+// console.log(err.message);                    // "Data kosong"
+// console.log(err.field);                      // "username"
+console.log(err.name);                       // "ValidationError"
+
+
+    </script>
+</body>
+</html>
