@@ -8,8 +8,21 @@
 <body>
     
     <script>
+/*
+cara kerja kode diatas yaitu membuat sebuah custom error yang bernama ValidationError yang mewarisi class Error , nah karena di class Induk yaitu class Error punya dan wajib ada constructor 
+maka di class anak ValidationError harus gunakan super(message) untuk akses field class Error yang berisi informasi error seprti bagian error mana,
+baris berapa  dan field property brisi inputan parameter di field dan this.name = ValidationError"  agar tahu nama custom errornya.
+nah ketika tidak inputkan parameter maka akan cetak di konsole Total parameter harus lebih dari 0" akan disimpan di message,
+dan masuk ke block catch nah melon disini merupakan instance object dari class ValidationError 
+karena hanya ada Custom Error disana dan dicek apakah benar melon merupakan instance object dari ValidationError ?
+jika benar maka cetak terjadi error di field ${melon.property} dengan error ${melon.message} ,gunakan melon. 
+untuk akses property karena melon kan sudah instace object jadi ketika panggil property tinggal gunakan .namaproperty .
+Jika tidak cetak terjadi error dan pesan error.message, mesage pada error.message apakah benar bisa diakses global tidak harus instacne object dari ValidationError?
+block finally akan tetap dijalankan ntah error atau tidak
 
+AKSES message TETAP BISA DIAKSES WALAU melon bukan instance object ValidationError karena default milik  class Error
 
+*/
         class ValidationError extends Error {
             constructor(message, field) {
                 super(message); // message ini isinya "Total parameter harus lebih dari 0"
