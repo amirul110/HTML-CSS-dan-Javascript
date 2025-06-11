@@ -28,3 +28,14 @@ console.log(hapus) // undefined
 
 console.info(nama.size) // 0 , karena sudah di hapus clear()
 
+
+const kambel = new Map();
+kambel.set("a",29292).set("b",1000);
+
+// untuk mengiterasi pada map
+kambel.forEach((value,key) => {
+
+    console.info(`${key} => ${value}`);
+}) /* a => 29292
+b => 1000
+*/
