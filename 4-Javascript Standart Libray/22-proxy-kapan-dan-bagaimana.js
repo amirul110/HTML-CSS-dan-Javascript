@@ -12,7 +12,9 @@ const karyawanProxy = new Proxy(karyawan, {
     
     get(target, prop, receiver){
         console.log(`[LOG] Akses property "${prop}" pada ${new Date().toLocaleTimeString()}`);
-    
+        console.log("target" , target);
+        console.log("receiver",receiver)
+
     const jam = new Date().getHours();
     if (jam < 9 || jam >= 16){
         throw new Error("Di luar jam kerja - akses di tolak")
@@ -29,4 +31,6 @@ const karyawanProxy = new Proxy(karyawan, {
 
 console.log(karyawanProxy.nama); /*[LOG] Akses property "nama" pada 15:50:09
 Doni */
-console.log(karyawanProxy.gaji) // 20000000
+console.log(karyawanProxy.gaji)  /* [LOG] Akses property "nama" pada 16:09:58
+target { nama: 'Doni', gaji: 20000000, alamat: 'Jakarta' }
+receiver { nama: 'Doni', gaji: 20000000, alamat: 'Jakarta' }*/
