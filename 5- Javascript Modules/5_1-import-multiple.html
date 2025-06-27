@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> import multiple </title>
+</head>
+<body>
+    
+    <script type = "module">
+        
+        // import banyak code sekaligus
+        import {company, sum, Company} from "./5_export-multiple.js";
+
+        console.log(company); // Programmer Now Handal
+        console.log(sum(4,2)); // 6
+
+        const newCompany = new Company("amirul"); // halo nama saya amirul
+        console.log(newCompany.nama) // amirul
+    </script>
+</body>
+</html>
