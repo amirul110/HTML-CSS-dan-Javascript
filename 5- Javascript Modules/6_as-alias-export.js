@@ -13,5 +13,5 @@ class Company {
     }
 }
 
-
+//gunakan as, sbgai alias agar nama2 variabel tidak terbentuk dengan file.js yang lain
 export {perusahaan as pabrik, kali as multiplication, Company as Perdagangan}
