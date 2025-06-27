@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> as alias import </title>
+</head>
+<body >
+    
+    <script type = "module">
+
+      // sudah alias saat export, jadi di import tidak perlu di alias lagi
+        // langsung import nama aliasnya, jika sudah alias di export
+        import {pabrik,  multiplication,  Perdagangan} 
+         from "./6_as-alias-export.js"
+
+        console.info(pabrik); /// PT Gudang Garam
+        console.info(multiplication(10,10)); // 100 
+
+        const jerapah = new Perdagangan("29") // umur saya adalah 29 tahun
+        jerapah.namaaa = "lion"
+        console.log(`nama saya yaitu : ${jerapah.namaaa}`) // umur saya adalah : lion
+</script>
+</body>
+</html>
