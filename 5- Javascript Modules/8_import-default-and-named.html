@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> import default and named</title>
+</head>
+<body>
+    
+    <script type="module">
+
+        // menggil default class, saat pemanggilan di import,tetap mengarah ke export default
+        // memanggil named export , harus persis2 sama
+        import makan, {judul, content} from "./8_export-default-and-named.js";
+
+        // makan sbgai default , yang lain
+        console.info(judul); // Belajar javacript
+        console.info(content); // Konten Belajar Javascript Module
+        console.info(makan); // Eka kurniawan
+    </script>
+</body>
+</html>
