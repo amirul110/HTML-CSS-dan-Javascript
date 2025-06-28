@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> module object </title>
+</head>
+<body>
+    
+    <script type="module">
+        
+    // import * as Eko hanya menangkap named exports, bukan default export.
+    
+    // Ambil semua named export dari file 9_module.js, lalu simpan semuanya dalam satu objek bernama Eko.
+    import * as Eko from "./9_module.js"
+
+    console.info(Eko.firstName);  // Eko
+    console.info(Eko.middleName); // Kurniawan
+    console.info(Eko.lastName); // Kanedy
+    Eko.hello();
+
+    const sepatu = new Eko.Mukena(); // Hello from eko
+    console.info(sepatu.namaku) // Eko
+    </script>
+</body>
+</html>
