@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> export default class </title>
+</head>
+<body>
+    
+    <script type="module">
+
+        // pemanggilan class, boleh bebas panggil bebas,tidak harus sesuai dengan di import
+        // jika class yang di cari tidak ada, maka gunakan default class 
+        import Orang from "./7_2_export-default-class.js";
+
+        const batu = new Orang("desta");
+        batu.sayHallo(); // Halloo, nama saya adalah desta
+    </script>
+</body>
+</html>
