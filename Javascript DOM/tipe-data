@@ -1,0 +1,7 @@
+document = merupakan representasi dari halaman web
+node = merupakan base class semua tipe data di DOM, seperti Documenet,Element, Attr
+Element = merupakan representasi objec element di halaman web, misal head , body, form, input
+Nodelist = merupakan array/collection yang berisikan Node 
+Attr = atau attribute, merupakan representasi object attribute dalam element 
+NamedNodeMap = merupakan collection yang berisikan Attr dalam bentuk Map 
+
