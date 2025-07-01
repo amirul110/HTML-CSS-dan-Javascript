@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> document property </title>
+</head>
+<body>
+    <img src="gambar.jpg">
+    <h1> pagi</h1>
+    <script>
+        console.info(document.title); // document property
+        console.info(document.body); // isi tag body
+        console.info(document.head); // valid, isi tag head
+        console.info(document.images); // HTMLCollection { 0: img, length: 1 }
+        console.info(document.contentType);  // text/html
+
+        console.log(document.body.innerHTML);
+        console.log(document.body.querySelector("h1"))
+        console.dir(document) // Untuk melihat semua properti dan method dari objek document.
+    </script>
+</body>
+</html>
