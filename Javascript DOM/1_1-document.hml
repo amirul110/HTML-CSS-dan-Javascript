@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document DOM</title>
+</head>
+<body>
+    
+    <p id="demo"> Halo</p>
+    <script>
+
+        const paragraf = document.getElementById("demo");
+
+        // Tampilkan teks dari element <p>
+        console.log("Isi paragraf: ", paragraf.textContent)
+        console.log("Tittle document: ", document.title)
+    </script>
+</body>
+</html>
+
+
+<!-- 
+
+document adalah objek milik JavaScript,
+yang dibuat secara otomatis oleh browser saat membuka halaman HTML.
+
+Jadi: document bukan ditulis di HTML, tapi digunakan oleh JavaScript untuk mengakses/memanipulasi HTML.
+object adalah tipe data kompleks yang digunakan untuk menyimpan koleksi data dan fungsi.
+-->
