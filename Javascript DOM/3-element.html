@@ -9,17 +9,20 @@
 </head>
 <body>
 
-<h1 id="tittle"></h1>
-<p id="deskripsi"></p>
+<h1 id="tittle">INI JUDUL </h1>
+<p id="deskripsi">INI DESKRIPSI JUDUL</p>
 
 <script >
 
+    // secara konsep .textContent  itu mengganti/replace data sebelumnya
+    // gunakan  .textContent += agar dikombinasikan dengan id yang sama, bukan di replace
     const judul = document.getElementById("tittle");
-   judul.textContent = "Belajar javascript DOM SEKARANG !!!!!!!";
+   judul.textContent += " Belajar javascript DOM SEKARANG !!!!!!!";
 
     const deskripsi = document.getElementById("deskripsi");
     deskripsi.textContent = "Selamat Belajar Javascript DOM";
 
+    console.log("halo dunia")
 
 </script>
 </body>
@@ -27,5 +30,5 @@
 
 <!--
 
-tag2 html seperi h1 - h7 , p,div,ul,li termasuk elemet node
+tag2 html seperi h1 - h7 , p,div,ul,li termasuk element node
 -->
