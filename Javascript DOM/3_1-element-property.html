@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> element property </title>
+</head>
+<body>
+
+    <div id="konten" class="conten">
+        <h1 id="judul" class="judulku"> Ini adalah judul </h1>
+        <p id = "deskripsi" class="deskripsiku">Ini adalah Deskripsi</p>
+
+    </div>
+
+<script>
+
+    const content = document.getElementById("konten");
+
+    console.info(content.id); // konten
+    console.info(content.className); // conten
+    console.info(content.tagName); // div
+    console.info(content.innerHTML) /*         <h1 id="judul" class="judulku"> Ini adalah judul </h1>
+        <p id="deskripsi" class="deskripsiku">Ini adalah Deskripsi</p>
+
+
+    jika langsung menuju ke id  anak sperti "judul", "deskripsi"
+    maka innerHTML akan langsung cetak nilainya bukan lengkap dengan tag2*/
+</script>
+</body>
+</html>
+
+
+<!--
+id, className, tagName adalah property dari object elemen DOM, bukan cuma atribut HTML.
+Property = fitur/data milik sebuah object (dalam hal ini: elemen DOM)
+-->
