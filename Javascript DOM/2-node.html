@@ -1,26 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Node</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Belajar Node</title>
 </head>
 <body>
-    <ul>
-        <li id="first">First</li>
-        <li id="second">Second</li>
-        <li id="third">Third</li>
+<h1 id="pagi"> PAGIIII SIRR</h1>
+<ul id = "utama">
+    <li id = "satu">First</li>
+    <li id = "kedua">Second</li>
+    <li id = "ketiga">Third</li>
+</ul>
 
-    </ul>
-     
-    <script>
+<script>
 
-        const menu = document.getElementById("menu");
-        console.info(menu); // null
+    const utama = document.getElementById("utama");
+    console.info(utama);
 
-        const kedua = document.getElementById("second");
-        console.info(kedua) // <li id="second">
-        console.log(kedua instanceof Node) // true
-        </script>
+    const ketiga = document.getElementById("ketiga");
+    console.info(ketiga)
+
+    // panggil berdasarkan id,
+    console.log(document.body.querySelector("#pagi").textContent)
+
+    // node property
+
+</script>
 </body>
 </html>
+
+<!--
+
+document
+└── html (Element node)
+    ├── head (Element node)
+    │   └── title (Element node)
+    │       └── "Contoh" (Text node)
+    └── body (Element node)
+        ├── h1 (Element node)
+        │   └── "Hello" (Text node)
+        └── p (Element node)
+            └── "Ini paragraf" (Text node)
+-->
