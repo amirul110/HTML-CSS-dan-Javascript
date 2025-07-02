@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> node property</title>
+</head>
+<body>
+<ul id="siang">
+    <li id="kecil">Kecil</li>
+    <li id="sedang">Sedang</li>
+    <li id="besar">Besar</li>
+</ul>
+
+<script>
+
+    const cuaca = document.getElementById("siang");
+    console.info(cuaca); // siang
+    console.info(cuaca.children); // HTMLCollection(3)0: li#kecil1: li#sedang2: li#besarbesar: li#besarkecil: li#kecilsedang: li#sedanglength: 3[[Prototype]]: HTMLCollection
+
+    const kedua = document.getElementById("sedang");
+    console.info(kedua.previousElementSibling) //     <li id="kecil">Kecil</li>
+    console.info(kedua.nextElementSibling) //  <li id="besar">Besar</li>
+</script>
+</body>
+</html>
