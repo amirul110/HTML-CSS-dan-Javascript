@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> node document </title>
+</head>
+<body>
+    <ul id="bisa">
+        <li id="dekat">Dekat</li>
+        <li id="menengah"> Menengah</li>
+        <li id="jauh"> Jauh </li>
+    </ul>
+
+<script>
+
+    const bisa = document.getElementById("bisa");
+    console.info(bisa)
+    bisa.removeChild(document.getElementById("menengah")) // menghapus data dengan id menengah
+    bisa.removeChild(document.getElementById("dekat")) // menghapus data dengan id dekat
+    bisa.removeChild(document.getElementById("jauh")) // menghapus data dengan id jauh
+
+</script>
+</body>
+</html>
