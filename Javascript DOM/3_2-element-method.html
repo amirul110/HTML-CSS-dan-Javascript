@@ -10,20 +10,33 @@
 <body>
 
 <div id="content" class="konten">
-    <h1 id="judul"  class="title">ini judul</h1>
-    <p id="deskripsi" class = "description">ini deskripsi</p>
+    <h1 id="JUDULSAY" class="judul">Ini judul </h1>
+    <p id="description" class="deskripsi"> Ini deskripsi</p>
 </div>
+
+<h7 id="pagi">selamat pagi</h7>  <!-- selamat pagi !-->
 
 <script>
 
-    const description = document.getElementById("deskripsi");
-    const top = document.getElementById("judul");
+    const iniDeskripsi = document.getElementById("description");
+    const iniJudul = document.getElementById("JUDULSAY");
+    //const iniPagi = document.getElementById("pagi")
 
-    console.info(description);
-    console.info(top)
+    // .remove() digunakan untuk menghapus element (HTML terutama) dari tampilan
 
-    description.remove();
-    // top.remove()
+   // iniJudul.remove() // menghapus , "Ini judul"
+    iniDeskripsi.remove() // mengahpus , "Ini deskripsi"
+
+    console.log(iniJudul.getAttribute("id")) // JUDULSAY , dapatkan nilai dari attribute
+    /*
+    const iniJudul = document.getElementById("title");
+iniJudul.remove();
+Yang terjadi:
+
+getElementById("title") mengambil elemen <h1 id="title">Ini judul</h1> dari halaman.
+
+remove() menghapus elemen tersebut dari dokumen (DOM) — jadi <h1> tidak lagi muncul di browser dan juga hilang dari struktur HTML saat ini.
+     */
 </script>
 </body>
 </html>
