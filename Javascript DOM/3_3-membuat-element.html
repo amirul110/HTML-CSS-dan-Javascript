@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> membuat element </title>
+</head>
+<body>
+
+<!-- div dengan id "content" sebgai orang tua as root, jika ingin masukan anak ke root maka panggil id nya !-->
+<div id="content" class="kontenku">
+</div>
+
+<script>
+
+    // createElement( method untuk buat element HTML,parameter harus tag HTML)
+    // menambahkan parameter yaitu iniDeskripsi ke element inikoneten sebagai anak (child)
+
+    const inikonten = document.getElementById("content")
+
+    const iniJudul = document.createElement("h1")
+    iniJudul.textContent = "belajar javascript dom" // belajar javascript dom
+    inikonten.appendChild(iniJudul) // memasukan (iniJudul as anak,child) dari induk inikonten
+
+
+    const iniDeskripsi = document.createElement("p");
+    iniDeskripsi.textContent = "Sealamt belajar javascript DOM"; // Sealamt belajar javascript DOM
+
+    inikonten.appendChild(iniDeskripsi)  // memasukan (iniDeskripsi as anak,child) dari induk inikonten
+
+    console.log(inikonten); // <div id="content" class="kontenku">
+
+</script>
+</body>
+</html>
