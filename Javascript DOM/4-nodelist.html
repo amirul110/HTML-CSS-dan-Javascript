@@ -9,16 +9,45 @@
 </head>
 <body>
 
+<ul id="menu1">
+    <li>Satu</li>
+    <li>Dua</li>
+</ul>
 <script>
 
-    const list1 = document.querySelectorAll("li")
+    const list1 = document.querySelectorAll("li") // kembalikan 2 anak ; li,li
     console.info(list1);
 
     const list2 = document.getElementById("menu1").childNodes;
-    console.info(list2)
+    console.info(list2) // mengembalikan 5 child ,walau hanya 2 li
+                        // dikarenakan childNodes juga menghitung spasi,liat contoh dibawah mengapa sampai 5 panjangnya
 
-    const list3 = document.getElementById("menu1").childNodes;
-    console.info(list2)
+    const list3 = document.getElementById("menu1").children;
+    console.info(list3) // 2, karena hanya kembalikan element saja, memang benar hanya 2 child dari parent ul
 </script>
 </body>
 </html>
+
+
+<!--
+
+alur kerja penerapan .childNodes
+
+<ul>
+    ↳ (Text node: "\n    ")        ← baris kosong/spasi sebelum <li>
+    ↳ <li>Satu</li>
+    ↳ (Text node: "\n    ")        ← enter sebelum <li>Dua>
+    ↳ <li>Dua</li>
+    ↳ (Text node: "\n")            ← enter sebelum </ul>
+</ul>
+
+
+| Aspek                    | `querySelectorAll("li")`                                                | `.children`                                                            |
+| ------------------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| 🔎 **Tujuan**            | Ambil elemen yang **cocok dengan selector CSS**                         | Ambil **anak elemen langsung** (tanpa teks/komentar) dari suatu elemen |
+| 📦 **Yang dikembalikan** | `NodeList` (statis)                                                     | `HTMLCollection` (live)                                                |
+| 🧠 **Sifat hasil**       | **Statis**: tidak berubah walau DOM berubah                             | **Live**: berubah otomatis kalau DOM berubah                           |
+| 📋 **Isi**               | Semua elemen yang cocok, bisa dari seluruh dokumen atau elemen tertentu | Hanya elemen langsung (bukan teks, bukan komentar)                     |
+| 🎯 **Fleksibilitas**     | Bisa gunakan selector CSS lengkap (`ul > li.active`, `div.box`, dll)    | Tidak pakai selector, hanya ambil semua elemen anak langsung           |
+
+-->
