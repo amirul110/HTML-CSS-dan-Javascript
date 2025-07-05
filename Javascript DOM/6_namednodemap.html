@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> namednodemap</title>
+</head>
+<body>
+<img id="logo" src="http:\\www.pzn.now\pzn.png" alt = "PZN Logo">
+
+<script>
+    const ikiLogo = document.getElementById("logo");
+
+   // .attributes adalah properti bawaan DOM yang mengembalikan NamedNodeMap,
+    // yaitu kumpulan semua atribut  dan value nya, yang dimiliki elemen tersebut.
+    const ikiatribute = ikiLogo.attributes
+
+    for (let hasilatribute of ikiatribute) {
+        console.info(`${hasilatribute.name} : ${hasilatribute.value}`)
+    } /* id : logo
+       src : http:\\www.pzn.now\pzn.png
+        alt : PZN Logo
+    */
+</script>
+</body>
+</html>
