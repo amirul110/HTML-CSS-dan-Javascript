@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> attr atau atribute </title>
+</head>
+<body>
+<img id="logo" src="https://www.pzn.com/img/pzn.png" alt="PZN Logo">
+
+<script>
+
+    const ikilogo = document.getElementById("logo");
+
+    // mengambil seluruh atribut dari elemen <img id="logo" ...> dalam bentuk objek NamedNodeMap.
+    // mengambil atribut dengan nama "src" dari NamedNodeMap itu.
+    const ikiSumber = ikilogo.attributes.getNamedItem("src");
+
+    console.info(ikiSumber); //  src="https://www.pzn.com/img/pzn.png"
+    console.info(ikiSumber.name); //src
+    console.info(ikiSumber.value) // https://www.pzn.com/img/pzn.png
+
+    // sesuai ppt pzn
+    const src = ikilogo.getAttribute("src");
+
+    console.info(src) // https://www.pzn.com/img/pzn.png , hanya mengambil value sebagai string bukan objek
+</script>
+</body>
+</html>
+
+<!--
+ console.info(ikiSumber.name);
+
+    const ikiAtribute = ikilogo.attributes;
+
+    for (let attr of ikiAtribute)
+    console.info("nama atribut (key) : ", attr.name);
+    console.info("nilai atribut (value) :", attr.value);
+
+-->
