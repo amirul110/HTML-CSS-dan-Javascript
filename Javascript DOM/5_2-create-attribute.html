@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> membuat atribute </title>
+</head>
+<body>
+    <p id="pohon"></p>
+    <p id="tanah"></p>
+    <script>
+
+        const logo = document.getElementById("pohon");
+
+        const ikiSumber = document.createAttribute("src"); // src sebagai key
+        ikiSumber.value = "https://ww.pzn.png"; // https://ww.pzn.png" sbg value
+        logo.setAttributeNode(ikiSumber); // memasukan atribute ikiSumber ke variabel logo yg berisi id pohon
+
+        console.info(logo) //     <p id="pohon" src = "https://ww.pzn.png" ></p>
+
+        const ikiTanah = document.getElementById("tanah");
+
+        // menambahkan atribut langsung  dengan .setAttribute ("key" , "value")
+        ikiTanah.setAttribute("class", "daun-hijau");
+        ikiTanah.setAttribute("tinggi",202);
+        ikiTanah.setAttribute("title", "ini pohon mangga");
+
+        console.log(ikiTanah.getAttribute("class")) // daun-hijau
+        console.log(ikiTanah.getAttribute("tinggi")) // 202 , hasilnya tetap string walau di deklrasi sbg int
+        console.log(ikiTanah.getAttribute("title"))  //ini pohon mangga
+
+        console.log(ikiTanah)        //  <p id="tanah" class="daun-hijau" tinggi="202" title="ini pohon mangga"></p>
+
+    </script>
+</body>
+</html>
