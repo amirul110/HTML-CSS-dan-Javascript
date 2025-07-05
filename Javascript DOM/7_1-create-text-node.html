@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> create text document </title>
+</head>
+<body>
+
+<script>
+    // 1. Buat text node
+    const text = document.createTextNode("   eko kurni awan kanedy");
+
+    // 2. Buat elemen <p>
+    const paragraf = document.createElement("p")
+
+    // 3. tempelkan text node ke dalam <p>
+    paragraf.appendChild(text)
+
+    // 4. tempelkan <p> ke dalam body
+    document.body.appendChild(paragraf) // untuk mencetak di browser juga, bukan hanya console
+
+    console.info(text) // "   eko kurni awan kanedy" , Tanda kutip dua pada output di konsol hanyalah representasi visual dari string, bukan value nya
+</script>
+</body>
+</html>
