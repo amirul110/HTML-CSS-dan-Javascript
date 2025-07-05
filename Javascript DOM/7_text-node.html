@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> text node</title>
+</head>
+<body>
+<p> Eko Kurniawan
+
+    Khannedy </p>
+<script>
+
+    // text node = Text node menyimpan semua teks mentah di antara tag HTML — termasuk spasi dan baris kosong .
+    const p = document.querySelector("p");
+    const text = p.firstChild;
+    console.info(text.wholeText) /*  Eko Kurniawan
+
+    Khannedy */
+</script>
+</body>
+</html>
