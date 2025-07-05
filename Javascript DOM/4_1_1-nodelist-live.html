@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> nodelist live and static</title>
+</head>
+<body>
+<ul id="menu1">
+    <li>Satu</li>
+    <li>Dua</li>
+</ul>
+
+<script>
+
+    // nodelist Live
+    const menu1 = document.getElementById("menu1")
+    const list1 = menu1.childNodes; // mengambil semua yang tersimpan di menu1 yaitu : element dan text node (jarak antar element)
+
+    menu1.append(document.createElement("li")) // menambahkan element li ke parent menu1
+    menu1.append(document.createElement("li")) // menambahkan element li ke parent menu1
+
+    console.info(list1) // 7 , 4 element + 3 node text(jarak antar element)
+
+</script>
+</body>
+</html>
+
+<!--
+
+cara kerja kode diatas yaitu
+1. menyimpan id "menu1" ada const menu1 dan membuat variabel baru list1 yang menyimpan anak2 node dari id menu1 yang disimpan di const menut1
+
+2. kemudian variabel menu1 (yang berisi id "menu1) ditambahkan element li dua kali
+3. saat mencetak anak node yang tersimpan pada list1 ,dibuka dengan console terisi nilai dari nodelist itu 7 karena kalau gunakan nodelist yang menghitung antar baris sebgai text , dimana 4 element yaitu li , li yang dideklarasikan langsung di html . jarak antar 2 element yang dideklarsikan di html mempunyai 3 jarak yaitu jarak ul sebelum li satu, jarak setelah li satu dan sebelum li dua dan terakhir jarak setelah li dua dan sebelum </ul>  dan li,li selanjutnya di tambahkan degan createElement() dengan berjumlah 2, maka dari itu jumlah pada childNodes = 7 karena 4 dari element dan 3 dari text yang merupakan jarak antar element
+
+-->
