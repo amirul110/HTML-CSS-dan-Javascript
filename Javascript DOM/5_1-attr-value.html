@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> atribut value </title>
+</head>
+<body>
+
+<img id="logo" src="http://pzn.png" alt="PZN logo">
+
+<script>
+/*
+ cara kerja kode tersebut dengan menyimpan id logo di variabel logo, dan logo.getAttribute("src")
+digunakan untuk mendapatkan value dari atribut src berdasarkan id logo, lalu disimpan ke variabel src
+
+ */
+    const logo = document.getElementById("logo");
+    const src = logo.getAttribute("src") // Fungsi ini mengambil nilai (value) dari atribut src pada elemen logo
+
+    console.info(src); // http://pzn.png
+</script>
+</body>
+</html>
