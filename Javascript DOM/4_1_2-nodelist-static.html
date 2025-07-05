@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> nodelist static </title>
+</head>
+<body>
+<ul id="menu1">
+    <li>Satu</li>
+    <li>Dua</li>
+</ul>
+
+<script>
+
+    // nodelist static
+    const ikiStatic = document.querySelectorAll("li") // Ambil semua <li> dengan querySelectorAll()
+
+    const menuStatic = (document.getElementById("menu1")) //  Ambil elemen <ul> dengan id "menu1"
+    console.info(ikiStatic); // Output: NodeList(2) → <li>Satu>, <li>Dua>
+
+    // menambahkan 2 element li pada menuStatic
+    menuStatic.append(document.createElement("li"))
+    menuStatic.append(document.createElement("li"))
+
+
+    console.info(ikiStatic); // Output tetap: NodeList(2)
+
+
+</script>
+</body>
+</html>
+
+<!--
+
+cara kerja kode diatas yaitu, memilih  element li dengan querySelectorAll  disimpan pada variabel ikiStatic , 
+
+2. kemudian memanggil id "menu1" disimpan di menuStatic
+3. cetak ikiStatic yang berisi 2 , nilai yang sama dengan yang dideklrasikan di html
+3. menambahkan  element li dengan createElement sebanyak 2 kali ditambahkan di menustatic,harapnya  element baru yang ditambahkan tersimpan pada ul dengan id "menu1"
+
+4. saat dicek lagi dengan console.info ikiStatic tetap brjumlah 2 karena dengan gunakan querySelectorAll dimana bersifat static walau ada perubahan node tetap jumlah 2 karena static
+ -->
