@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> global event handler</title>
+</head>
+<body>
+
+<input id="pencetBang" type = "button" value="pencet Me">
+
+<script>
+
+    const ikiPencet = document.getElementById("pencetBang");
+    ikiPencet.onclick = function () {
+        ikiPencet.setAttribute("value", "SUDAH SAYA PENCET")
+    }
+
+    /*
+    onclick adalah nama event-nya
+
+  function () { ... } adalah fungsi callback-nya
+
+  Saat user klik tombol id "PencetBang", event "click" terjadi, dan fungsi dijalankan
+
+  Jadi:
+
+  Event-nya: click
+
+  Cara penanganannya: global handler (onclick = ...)
+  */
+</script>
+</body>
+</html>
