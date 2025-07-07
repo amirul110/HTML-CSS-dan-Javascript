@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> event handler many event</title>
+</head>
+<body>
+
+<input id="btn" type="button" value="BELUM DIPENCET">
+
+<script>
+
+    const pencet = document.getElementById("btn");
+
+    pencet.addEventListener("click", function (){
+        console.log("Fungsi A")
+    });
+
+    pencet.addEventListener("click", function (){
+        console.info("Fungsi B")
+    })
+
+    // akan jalankan semua "Fungsi A" dan "Fungsi B"
+  // output : "Fungsi A"
+  //          "Fungsi B"
+</script>
+</body>
+</html>
