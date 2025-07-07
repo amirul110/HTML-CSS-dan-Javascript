@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<input id="clickMe" type="button" value="Click Me"/>
+
+<script>
+
+    const clickMe = document.getElementById("clickMe");
+    clickMe.addEventListener("click", function () {
+        clickMe.setAttribute("value", "You Alredy Click Me!") // merubah value "Click Me" menjadi "You Alredy Click Me!"
+
+    })
+</script>
+</body>
+</html>
+
+<!--
+ Event Target merupakan parent class dari Node, artinya semua Node memiliki kemampuan dari
+Event Target
+
+addEventListener adalah fungsi yang menunggu suatu event terjadi di elemen tertentu, lalu menjalankan perintah tertentu ketika event tersebut terjadi.
+
+Contoh event:
+
+"click" → saat diklik
+
+"mouseover" → saat kursor diarahkan
+
+"keydown" → saat keyboard ditekan
+-->
