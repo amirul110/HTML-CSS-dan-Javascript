@@ -15,7 +15,7 @@
     const canvas = document.getElementById("canvas");
     const text = document.getElementById("text");
     canvas.onclick = function (event) {
-        // Nilai yang diisikan diambil dari informasi parameter event, yang dikirim otomatis oleh browser saat canvas diklik
+        // Nilai yang diisikan pada   text.textContent  diambil dari informasi parameter event, yang dikirim otomatis oleh browser saat canvas diklik
         text.textContent = `You Click At (${event.x}, ${event.y}, ${event.target.tagName}, ${event.timeStamp}, ${event.type})`
     }
 
