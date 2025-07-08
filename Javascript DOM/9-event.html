@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> belajar Event </title>
+</head>
+<body>
+<h1 id="text"> Click Yellow Box</h1>
+<div id="canvas" style="width: 500px; height: 500px; background-color: #b3273b"></div>
+<script>
+
+    const canvas = document.getElementById("canvas");
+    const text = document.getElementById("text");
+    canvas.onclick = function (event) {
+        // Nilai yang diisikan diambil dari informasi parameter event, yang dikirim otomatis oleh browser saat canvas diklik
+        text.textContent = `You Click At (${event.x}, ${event.y}, ${event.target.tagName}, ${event.timeStamp}, ${event.type})`
+    }
+
+    /*
+    event adalah parameter (biasanya otomatis dikirim oleh browser) yang berisi informasi detail tentang kejadian/event yang sedang terjadi.
+     */
+</script>
+</body>
+</html>
+
+<!--
+
+Jadi, proses lengkapnya:
+Saat user klik <div id="canvas">, maka event click terjadi
+
+Fungsi ini dijalankan:
+
+javascript
+Copy code
+canvas.onclick = function (event) {
+    ...
+}
+event berisi informasi klik, seperti posisi mouse (event.x, event.y)
+
+Lalu:
+
+javascript
+Copy code
+text.textContent = `You Click At (${event.x}, ${event.y})`
+akan mengubah isi dari elemen dengan id="text" menjadi hasil string tersebut
+
+📦 Ilustrasi Sederhana:
+Misalnya kamu klik di posisi:
+
+x = 120
+
+y = 300
+
+Maka:
+
+javascript
+Copy code
+text.textContent = `You Click At (${event.x}, ${event.y})`
+➡️ Akan menghasilkan:
+
+html
+Copy code
+<h1 id="text">You Click At (120, 300)</h1>
+-->
