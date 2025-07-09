@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-  <p id="content">
+<p id="content">
     <script>
-      console.info("hello world)
-          
-    </script>
-    <b>Eko</b> Kurniawan <i> Kanedy</i>
-  </p>
+        console.info("hello world")
 
-  <script>
+    </script>
+    <b>Eko</b> Kurniawan <i> Kanedy</i> <!-- Eko dicetak tebal Kurniawan dicetak biasa Kanedy dicetak miring-->
+</p>
+
+<script>
     const content = document.getElementById("content");
     console.info(content.textContent);
     console.info(content.innerText);
-  </script>
+</script>
 </body>
 </html>
+
+
+<!--
+
+innerText	digunakan untuk Mengambil hanya teks yang terlihat (visible) bagi pengguna di browser.
+
+Ciri-ciri teks termasuk innerText:
+Terlihat secara visual di browser.
+
+Bukan bagian dari elemen yang tersembunyi (misalnya display: none).
+
+Bukan isi dari elemen <script>, <style>, atau elemen non-teks lainnya.
+
+Menghormati pemformatan layout: misalnya baris baru, spasi yang ditampilkan.
+
+-->
