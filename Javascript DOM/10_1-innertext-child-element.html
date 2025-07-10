@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> belajar innertext sbgai child element</title>
+</head>
+<body>
+
+<div id="container"></div>
+
+
+<script>
+    const ikiContainer = document.getElementById("container");
+
+    // h2 dan <i> sebagai child/anak dari ikiKontainer dan tag <p> sebagai child/anak dari tag p
+    ikiContainer.innerHTML = "<h2>Judul </h2><p><i>Ini isi paragraf yang miring</i></p>"
+
+    /* Judul dicetak  tebal
+Ini isi paragraf yang miring dicetak miring
+*/
+
+</script>
+</body>
+</html>
