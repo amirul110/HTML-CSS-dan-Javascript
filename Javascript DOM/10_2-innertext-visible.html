@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> inner text visible</title>
+</head>
+<body>
+
+<div id="box">
+    <!-- style display tidak ditampilkan oleh  innerText -->
+    halo <span style="display: none">rahasia</span> dunia
+</div>
+
+<script>
+
+
+    const ikiBox = document.getElementById("box");
+
+    // innerText bisa digunakan pada console.log
+    // innerText hanya menampilkan yang bisa dilihat pengguna
+    console.log(ikiBox.innerText); // "halo dunia"
+    console.log(ikiBox.textContent) // "halo rahasia dunia"
+</script>
+</body>
+</html>
