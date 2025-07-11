@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ini learn window </title>
+</head>
+<body>
+
+<p id="content"></p>
+<p id="jendela"></p>
+<script>
+    /* window adalah objek global utama di browser JavaScript.
+
+Ia mewakili jendela (tab) browser itu sendiri.
+
+Semua fungsi global (seperti alert(), console.log(), setTimeout(), dsb) sebenarnya adalah property milik window.
+
+
+     */
+    const content = document.getElementById("content");
+    const height = window.screen.height;  // mendapatkan informasi tinggi layar ukuran fisik
+    const widht = window.screen.width; // mendapatkan informasi lebar layar ukuran fisik
+
+    content.textContent = `Window width (${widht}) x height (${height})` // Window widht (1280) x height (720)
+
+
+   const alert = window.alert("hallo bos")
+   console.log(alert) // alert "hallo bos"
+
+    // untuk mendapatkan ukuran jendela/ tab browser , ukuran akan berubah jika tab browser dikecil, besarkan
+    const ukTab = document.getElementById("jendela")
+    ukTab.textContent = `ukuran lebar tab brwoser ${window.innerWidth} dan tinggi tab browser ${window.innerHeight}`
+
+
+
+</script>
+</body>
+</html>
