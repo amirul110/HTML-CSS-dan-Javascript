@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> innerText dan innerHTMl perbedaan</title>
+</head>
+<body>
+
+<div id="contoh">
+    <p>Halooo <strong> Dunia </strong> !</p>
+</div>
+
+<script>
+    let element = document.getElementById("contoh");
+
+   console.log(element.innerText); // Halooo Dunia !
+
+     // innerHTML
+    console.log(element.innerHTML); //  <p>Halooo <strong> Dunia </strong> !</p>
+
+    element.innerHTML = "<em>Selamat <p>Haloooo</p> Datang </em>";
+
+
+    console.log("innerHTML = ", element.innerHTML); // innerHTML =  <em>Selamat <p>Haloooo</p> Datang </em>
+    console.log("innerText = ", element.innerText); /* innerText =  Selamat
+
+Haloooo
+
+Datang
+*/
+</script>
+</body>
+</html>
