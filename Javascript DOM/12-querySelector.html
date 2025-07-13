@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> query selector </title>
+</head>
+<body>
+
+<h1 id="judul">Belajar Query Selector</h1>
+<p class="paragraf">lorem ipsum doleor</p>
+<p class="paragraf">motor</p>
+
+<p>memilih element</p>
+<div class="bakwan">ini class bakwan</div>
+<ul>
+    <li>memilih element</li>
+    <li> membangun rumah</li>
+    <li></li>
+</ul>
+
+<input type="button" value="klik saya!!!">
+
+<ul>
+    <li>satu</li>
+    <li>dua </li>
+    <li>tiga</li>
+    <li>empat</li>
+    <li>lima </li>
+</ul>
+
+<div>
+<p>
+    lorem ispum dolor amet tapi bang!
+</p>
+<p>
+    makan bang ` ~
+</p>
+<p>selamat pagi</p>
+</div>
+
+<p>motor</p>
+<h1>mobil</h1>
+
+<input type="button" value="phon!!">
+
+
+<h4>
+    ini h4 bang
+</h4>
+
+
+<div>
+    <p> ini bukan setelah h4</p>
+</div>
+<p>ini paraf ke 1 setelah h4</p>
+<p>ini paraf ke 2 setelah h4</p>
+<p>ini paraf ke 3 setelah h4</p>
+
+
+<script>
+
+    // id selector dengan #
+    const judul = document.querySelector("#judul");
+    judul.style.color = "purple";
+
+    // class selector dengan .namaclass, memilih yang pertama
+    const kotak = document.querySelector(".paragraf");
+    kotak.style.backgroundColor = "lightgray";
+
+// mengambil tag p pertama, yaitu <p class="paragraf">lorem ipsum doleor</p> tdk peduli sudah ada selector lain
+    const ikiParaf =  document.querySelector("p");
+    ikiParaf.innerText = "INI DIUBAH PAKSA"
+
+    // mengambil atribut type button pertama
+    const inputButton = document.querySelector('input[type="button"]');
+    inputButton.style.color = "red"; // klik saya!! berubah merah
+
+    // child selector, mengambil child ke 4 dari ul
+    const itemKedua = document.querySelector('ul > li:nth-child(4)');
+    itemKedua.style.color = 'purple';
+
+    // mengambil element p yang langsung setelah div ,
+    // yaitu motor, mengambil yang setara bukan child dari div
+    const pBang = document.querySelector("div + p")
+    pBang.style.color = "blue";
+
+    // mengambil satu element setelah h4, mengampil "ini paraf ke 1 setelah h4" tetap mengambil karena masih satu parent 
+    const h1Bang = document.querySelector("h4 ~ p")
+    h1Bang.style.color = "blue";
+
+    // mengambil tag p setelah h4
+    const s4 = document.querySelector("h4 + p")
+    s4.style.color = "red"; // tidak akan menemukan, karena tidak ada langsung setelah tag h4 langsung ta g p
+</script>
+</body>
+</html>
