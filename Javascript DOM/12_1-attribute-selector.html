@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> attribute selector</title>
+</head>
+<body>
+<div class="eko"></div>
+<div class="kurniawan"></div>
+<div class="kanedy"></div>
+<h1>malam</h1>
+<p class="malam"></p>
+<script>
+
+    // const element berisi 4 variabel yang punya atribut class, yang penting punya atribut class tetap tersimpan di const element
+    const element = document.querySelectorAll("[class]");
+    console.info(element);
+
+    // const ikiEko berisi nilai dari div berisi atribut class dengan value "eko"
+    const ikiEko = document.querySelectorAll("div[class^='eko']");
+    console.info(ikiEko);
+</script>
+</body>
+</html>
