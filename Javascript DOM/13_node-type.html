@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> node type</title>
+</head>
+<body>
+eko kurniawan kanedy
+<!-- hallo dunia -->
+<script>
+
+    const nodes = document.body.childNodes;
+    nodes.forEach(simpanNode => {
+        console.info(`${simpanNode} : ${simpanNode.nodeType}`);
+    })
+
+    /*
+    [object Text] : 3                   ← teks: "eko kurniawan kanedy"
+[object Comment] : 8               ← komentar: <!-- hallo dunia -->
+[object Text] : 3                  ← teks kosong atau newline
+[object HTMLScriptElement] : 1     ← <script>...</scrpt>
+
+komentar ini akan tetap menjadi node di dalam struktur DOM, dan tipenya adalah Comment, yang oleh standar DOM memiliki nodeType = 8.
+
+nodeType = 3 tidak menunjukkan jumlah teks atau kata.
+Itu hanya kode tetap (konstanta) dari W3C DOM Standard yang artinya: "node ini adalah teks".
+*/
+</script>
+
+</body>
+</html>
