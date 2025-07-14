@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> HTML Element </title>
+</head>
+<body>
+<!-- seluruh bagian <a href="" id="tautan">bagus</a>  adalah HTML Element -->
+<a href="bagisan" id="tautan">bagus</a>
+<script>
+
+    const ikiTautan = document.getElementById("tautan")
+    ikiTautan.href = "https://www.programmerzamannow.com";
+    ikiTautan.target = "_blank";
+    ikiTautan.textContent = "programmer zaman now"
+
+
+ /*
+ nama atribut element HTML sama dengan nama property DOM , jadi tidak perlu setAtribut, getAtribute;
+
+    | Atribut HTML | Properti DOM        | Sama Fungsi? | Catatan Tambahan                |
+| ------------ | ------------------- | ------------ | ------------------------------- |
+| `id`         | `element.id`        | ✅            | Sama persis                     |
+| `class`      | `element.className` | ✅            | Lebih baik pakai `classList`    |
+| `href`       | `element.href`      | ✅\*          | Bisa beda format (absolute URL) |
+| `target`     | `element.target`    | ✅            | Sama persis                     |
+| `style`      | `element.style`     | ✅            | Hanya inline style              |
+
+     */
+
+
+</script>
+</body>
+</html>
