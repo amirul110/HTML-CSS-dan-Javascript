@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> HTML Form Element </title>
+    <title>Document</title>
 </head>
 <body>
 
@@ -15,6 +15,8 @@
     </label>
     <br>
     <label for="from">
+        <!-- jadi for dan id harus sama,ketika value label dipencet akan mengarah ke id input
+        atribut name digunakan untuk mengolah data sisi backend sperti javascript -->
         From : <input type="text" id="from" name="from"/>
     </label>
     <br>
@@ -23,21 +25,35 @@
 <div id="commentList"></div>
 
 <script>
-    document.querySelector("form[name=commentForm]").onsubmit = function (event) {
-        const ikiKomentList = document.getElementById("commentList");
-        const comment = document.getElementById("comment").value;
-        const from = document.getElementById("from").value;
+    document.forms['commentForm'].onsubmit = function (event) {
+        const commentList = document.getElementById("commentList");
 
-        const KomenItem = document.createElement("p");
-        KomenItem.textContent = `${comment} - ${from}`;
-        ikiKomentList.appendChild(KomenItem);
+        //                          [mengarah ke nama form][mengarah ke atribut name , didalam form param 1]
+        const comment = document.forms['commentForm']['comment'].value
+        const from = document.forms['commentForm']['from'].value
+
+        const IkiKomentItem = document.createElement("p");
+        IkiKomentItem.textContent = `${comment}  - ${from}`;
+        commentList.appendChild(IkiKomentItem);
 
         document.forms['commentForm'].reset();
 
-        // akan mencegah perilaku refrest halaman ketika disubmit.
         event.preventDefault();
 
     }
+
+    /*
+    | Metode                                      | Kelebihan                                                                                     | Kekurangan                                                        |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| ✅ `getElementById("...")`                   | - Cepat dan langsung<br>- Tidak bergantung pada struktur form                                 | - Harus pastikan `id` unik di seluruh dokumen                     |
+| ✅ `document.forms["formName"]["inputName"]` | - Berguna saat bekerja dalam struktur form tertentu<br>- Bisa mempermudah dalam form kompleks | - Wajib punya `name` di form dan input<br>- Lebih panjang ditulis |
+
+Tips:
+id wajib unik di seluruh dokumen.
+
+name bisa sama di beberapa elemen, tapi dalam form harus tetap jelas agar tidak membingungkan.
+
+     */
 </script>
 </body>
 </html>
