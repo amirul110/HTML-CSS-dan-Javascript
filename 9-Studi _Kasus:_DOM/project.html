@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> project</title>
+</head>
+<body>
+<form action="" name="TodoForm">
+
+    <label for="todo">
+        <p>Todo :</p> <input type="text" id="todo" name="todo">
+
+    </label>
+    <input id="add" type="submit" value="add">
+</form>
+
+<div id="unto"></div>
+<script>
+    // const ikiParaf = document.getElementById("todo")
+document.querySelector("form[name=TodoForm]").onsubmit = function (event) {
+        const add =  document.getElementById("todo").value
+    const ikiUnto = document.getElementById("unto")
+
+    const tagP = document.createElement("p");
+    tagP.textContent = `${add}`
+
+        ikiUnto.appendChild(tagP);
+
+
+    document.forms["TodoForm"].reset();
+        event.preventDefault();
+    }
+
+    /* membuat div , untuk tampilkan hasil inputan
+    membuat element createlemtn tag p
+    isi tag p
+    menambahkan tag p ke div
+    .reset form untuk hapus input ketika ditekan
+    preventdefault untuk cegah refresh,sehingga data tidak hilang
+     */
+</script>
+</body>
+</html>
