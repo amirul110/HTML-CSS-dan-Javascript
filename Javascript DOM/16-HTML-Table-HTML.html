@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> HTML Table Element </title>
+</head>
+<body>
+
+<table id="orderRevenue" border="1">
+    <caption>Order bang</caption>
+    <thead> <!-- thead berisi judul kolom -->
+    <tr>
+        <!-- th berisi isi value dar judul kolom, disini 2 judul -->
+        <th>Bulan</th>
+        <th>Income</th>
+    </tr>
+    </thead>
+    <tbody> <!-- tbody berisi baris dibawahnya judul kolom/ thead,
+    berisi nilai sesuai judul kolom -->
+    <tr>
+        <!-- td untuk isi nilai dibawah judul komom -->
+        <td>Januari</td>
+        <td>20000000</td>
+    </tr>
+    <tr> <!-- terdapat 2 value dibawah judul kolom/thead -->
+        <td>Februari</td>
+        <td>30000000</td>
+    </tr>
+    </tbody>
+    <tfoot> <!-- tfoot berisi baris terakhir dari table tersebut -->
+    <tr>
+        <td>Total</td>
+        <td>50000000</td>
+    </tr>
+    </tfoot>
+
+    <tbody>
+    <tr>
+        <td>d</td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+<script>
+    const orderRevenue = document.getElementById("orderRevenue");
+    console.info(orderRevenue.caption);
+    console.info(orderRevenue.tHead);
+    console.info(orderRevenue.tBodies); // length 2, berisi jumlah tbody pada id "orderRevenue"
+    console.info(orderRevenue.tFoot);
+</script>
+</body>
+</html>
