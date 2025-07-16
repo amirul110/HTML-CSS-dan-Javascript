@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> HTML Form Element </title>
+</head>
+<body>
+
+<form name="commentForm">
+    <label for="comment">
+        Comment : <input type="text" id="comment" name="comment">
+    </label>
+    <br>
+    <label for="from">
+        <!-- jadi for dan id harus sama,ketika value label dipencet akan mengarah ke id input
+        atribut name digunakan untuk mengolah data sisi backend sperti javascript -->
+        From : <input type="text" id="from" name="from"/>
+    </label>
+    <br>
+    <input type="Submit" value="Submit" />
+</form>
+<div id="commentList"></div>
+
+<script>
+
+    document.querySelector("form[name=commentForm]").onsubmit = function (event) {
+        const ikiKomentList = document.getElementById("commentList");
+        const comment = document.getElementById("comment").value;
+        const from = document.getElementById("from").value;
+
+        const KomenItem = document.createElement("p");
+        KomenItem.textContent = `${comment} - ${from}`;
+
+        // Menambahkan paragraf tadi ke dalam div commentList.
+        ikiKomentList.appendChild(KomenItem);
+
+        document.forms['commentForm'].reset();
+
+        // akan mencegah perilaku refrest halaman ketika disubmit.
+       event.preventDefault();
+
+       // atribut name pada tag HTML digunakan untuk :
+        // Pengiriman data ke server (jika form submit tradisional).
+
+        //Mengakses elemen via document.forms["commentForm"].elements["comment"].
+    }
+</script>
+</body>
+</html>
