@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h3 id="selesai"></h3>
+<script>
+const ikiSelesai = document.getElementById("selesai")
+    const addElement = () => {
+        const header = document.createElement("h1");
+        header.textContent = "Programmer Zaman Now";
+
+        document.body.appendChild(header)
+    }
+
+    setTimeout(addElement, 10000);
+
+// dicetak dahulu
+ikiSelesai.textContent = "program selesai"
+</script>
+</body>
+</html>
