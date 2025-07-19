@@ -11,6 +11,9 @@
 
 <h3 id="selesai"></h3>
 <script>
+
+    // SetTimeout masuk async karena engine js tidak punya fitur timer,
+    // yang punya WEB API , maka di delegasi ke WEB API
 const ikiSelesai = document.getElementById("selesai")
     const addElement = () => {
         const header = document.createElement("h1");
@@ -23,6 +26,28 @@ const ikiSelesai = document.getElementById("selesai")
 
 // dicetak dahulu
 ikiSelesai.textContent = "program selesai"
+
+
+console.log("1", Date.now());
+
+setTimeout(() => {
+    console.log("2", Date.now());
+}, 5000);
+
+console.log("3", Date.now());
+
+
+    /*
+    Apakah ada waktu proses untuk “mengoper” ke Web API?
+✅ Iya, secara teknis pasti ada waktu pemrosesan, tapi:
+
+Tahapan	Perkiraan waktu
+Memanggil fungsi setTimeout	~0.01 ms atau kurang
+Mendaftarkan callback ke timer	~0.01–0.05 ms
+Kembali ke call stack utama	Sangat cepat
+
+Jadi total overhead pemrosesan setTimeout(...) adalah super kecil dan tidak akan terasa di program nyata
+*/
 </script>
 </body>
 </html>
