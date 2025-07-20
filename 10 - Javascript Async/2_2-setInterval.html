@@ -19,6 +19,58 @@
 
     setInterval(setTime,1000);
     console.info("Program Selesai")
+
+    /* setInterval(fn, delay) adalah fungsi bawaan browser/Node.js yang berfungsi untuk:
+
+kenapa masuk web api ? Karena timer tidak tersedia di JS engine, harus di-delegate ke fitur browser
+
+Menjalankan fungsi fn berulang-ulang setiap delay milidetik.
+
+| Fungsi        | Eksekusi                            |
+| ------------- | ----------------------------------- |
+| `setTimeout`  | Hanya sekali setelah delay          |
+| `setInterval` | Diulang terus setiap delay tertentu |
+
+ Web API bukan bagian dari bahasa JavaScript itu sendiri, tapi fitur lingkungan tempat JS dijalankan (host environment)
+
+
+     cara kerja
+CARA KERJA setInterval
+Saat JavaScript mengeksekusi setInterval(fn, delay):
+
+Fungsi itu langsung dikirim ke Web API (fitur browser).
+
+Browser mulai mengatur timer internal (native).
+
+Setelah delay (misal 1000ms), Web API akan:
+
+Kirim callback fn ke Task Queue.
+
+Event Loop akan:
+
+Cek apakah Call Stack kosong, lalu:
+
+Masukkan callback ke Call Stack, lalu jalankan.
+
+Timer tetap berjalan untuk ulangi proses di atas setiap delay.
+
+
+     JS Code:
+setInterval(setTime, 1000)
+
+        |
+        ↓
+[ Web API (Timer) → hitung 1 detik ]
+        |
+        ↓
+[ Callback Queue: → setTime() ]
+        |
+        ↓ (jika Call Stack kosong)
+[ Call Stack: setTime() → ubah teks di <h1> ]
+        |
+        ↓
+Ulang lagi setiap 1 detik
+*/
 </script>
 </body>
 </html>
