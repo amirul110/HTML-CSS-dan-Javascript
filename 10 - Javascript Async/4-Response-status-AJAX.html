@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> belajar response status AJAX</title>
+</head>
+<body>
+
+<p id="status">ccc</p>
+<script>
+    const  a = new XMLHttpRequest();
+     a.open('GET','api/status.json',true);
+     a.send();
+
+     a.addEventListener("load", function () {
+         if (a.status === 200) {
+             const json = JSON.parse(a.responseText);
+             const ikiStatus = document.getElementById("status");
+             ikiStatus.textContent = json.pagi; // pagi sebagai key pada file status.json
+         } else {
+           console.log(onerror)
+         }
+
+     })
+
+
+</script>
+</body>
+</html>
