@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Cek ReadyState AJAX</title>
+</head>
+<body>
+
+<h3>Status Proses AJAX : </h3>
+<p id="kontrak">Belum mulai...</p>
+
+<script>
+    const changeState = new XMLHttpRequest();
+    const kontrakEL = document.getElementById("kontrak");
+
+    const readyStateStatus = {
+        0 : "UNSENT - Request belum dibuat, open() belum dipanggil. ",
+        1 : "OPENED - Sudah dipanggil open(), tapi send() belum dipanggil. ",
+        2 : "HEADERS_RECEIVED - Server sudah merespon dengan header.",
+        3 : "LOADING - Server sedang mengirim data..",
+        4 : "DONE - Semua data sudah selesai/ diterima (berhasil / gagal)"
+    }
+
+    changeState.onreadystatechange = function () {
+        const pesanState = readyStateStatus[changeState.readyState];
+        kontrakEL.textContent = `readyState ${changeState.readyState} : ${pesanState}`;
+
+    }
+
+
+    if (changeState.readyState === 4) {
+        if (changeState.status === 200) {
+            const json = JSON.parse(changeState.responseText);
+            kontrakEL.textContent += `\n\n Respon : ${json.pagi}`
+        } else {
+            kontrakEL.textContent += `\n\n Gagal ambil data`
+        }
+    }
+
+    changeState.open('GET', 'api/status.json')
+    changeState.send()
+</script>
+</body>
+</html>
