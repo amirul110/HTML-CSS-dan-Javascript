@@ -3,45 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Cek ReadyState AJAX</title>
+          content="width=device-width, initial-scale=1.0">
+    <title>Cek ReadyState AJAX</title>
 </head>
 <body>
 
-<h3>Status Proses AJAX : </h3>
-<p id="kontrak">Belum mulai...</p>
+<h3>Status Proses AJAX:</h3>
+<p id="kontrak">0: Belum mulai...</p>
 
 <script>
+
+    /*
+    Ya, readyState mulai ditinggalkan karena cara kerja AJAX modern (seperti fetch) punya cara yang lebih jelas, bersih, dan
+    mudah digunakan daripada harus memantau angka status seperti 0–4.
+
+    server itu xampp,laragon,live server,bukan file response.json nya!!!!
+     */
     const changeState = new XMLHttpRequest();
     const kontrakEL = document.getElementById("kontrak");
 
     const readyStateStatus = {
-        0 : "UNSENT - Request belum dibuat, open() belum dipanggil. ",
-        1 : "OPENED - Sudah dipanggil open(), tapi send() belum dipanggil. ",
-        2 : "HEADERS_RECEIVED - Server sudah merespon dengan header.",
-        3 : "LOADING - Server sedang mengirim data..",
-        4 : "DONE - Semua data sudah selesai/ diterima (berhasil / gagal)"
-    }
+        0: "UNSENT - Request belum dibuat, open() belum dipanggil.",
+        1: "OPENED - Sudah dipanggil open(), tapi send() belum dipanggil.",
+        2: "HEADERS_RECEIVED - Server sudah merespons dengan header.",
+        3: "LOADING - Server sedang mengirim data...",
+        4: "DONE - Semua data sudah selesai (berhasil/gagal)."
+    };
 
+    // Event listener yang memantau setiap perubahan readyState
     changeState.onreadystatechange = function () {
         const pesanState = readyStateStatus[changeState.readyState];
-        kontrakEL.textContent = `readyState ${changeState.readyState} : ${pesanState}`;
+        kontrakEL.textContent = `readyState ${changeState.readyState}: ${pesanState}`;
 
-    }
-
-
-    if (changeState.readyState === 4) {
-        if (changeState.status === 200) {
-            const json = JSON.parse(changeState.responseText);
-            kontrakEL.textContent += `\n\n Respon : ${json.pagi}`
-        } else {
-            kontrakEL.textContent += `\n\n Gagal ambil data`
+        // Tambahan jika selesai
+        if (changeState.readyState === 4) {
+            if (changeState.status === 200) {
+                const json = JSON.parse(changeState.responseText);
+                kontrakEL.textContent += `\n\n✅ Respons: ${json.status}`;
+            } else {
+                kontrakEL.textContent += `\n\n❌ Gagal ambil data.`;
+            }
         }
-    }
+    };
 
-    changeState.open('GET', 'api/status.json')
-    changeState.send()
+    // Tampilkan readyState 0 manual (karena belum dipanggil apa pun)
+    kontrakEL.textContent = `readyState 0: ${readyStateStatus[0]}`;
+
+    // Jalankan proses secara bertahap dengan delay agar terlihat
+    setTimeout(() => {
+        changeState.open('GET', 'api/pagi.json', true);
+        kontrakEL.textContent = `readyState 1: ${readyStateStatus[1]}`;
+
+        setTimeout(() => {
+            changeState.send();
+            // Sisanya akan otomatis dipicu oleh onreadystatechange
+        }, 1000); // Delay sebelum kirim
+    }, 1000); // Delay sebelum open
+
+    /*
+    readyState = 1 → OPENED
+Kondisi: Kamu sudah memanggil ikiajax.open('GET', 'api/response.json', true);
+
+Keterangan:
+
+GET = metode HTTP untuk mengambil data
+
+'api/response.json' = alamat (path) file di server yang mau diambil
+
+true = koneksi asynchronous (tidak menunggu, bisa lanjut ke kode berikutnya)
+
+✔️ Benar! Ini belum kirim request, hanya menyiapkan koneksi.
+
+🔢 readyState = 2 → HEADERS_RECEIVED
+Kondisi: Kamu sudah memanggil .send(), dan server telah membalas dengan header HTTP.
+
+Contoh header yang dikirim server:
+
+http
+Salin kode
+HTTP/1.1 200 OK
+Content-Type: application/json
+❗ Perlu diluruskan:
+
+❌ File response.json bukan server
+✅ Server adalah aplikasi atau layanan yang menjalankan permintaan itu dan mengirim file tersebut ke browser.
+
+Misalnya:
+
+Kalau kamu pakai Live Server, atau XAMPP, atau Node.js → itulah server-nya.
+
+File response.json hanyalah data yang dikirim oleh server ke browser.
+
+🔢 readyState = 3 → LOADING
+Kondisi: Server sedang mengirim data, dan client mulai menerima sebagian data
+
+✔️ Benar sekali!
+Kalau data besar (misal 1MB JSON), browser mulai nerima sedikit-sedikit. Tapi kalau kecil (misal 1 KB), biasanya proses ini terlalu cepat untuk kamu lihat.
+
+🔢 readyState = 4 → DONE
+Kondisi: Semua data sudah diterima dari server, proses selesai (baik sukses atau gagal)
+
+✔️ Betul! Biasanya kamu akan cek juga status 200, untuk memastikan berhasil:
+
+js
+Salin kode
+if (ikiajax.readyState === 4 && ikiajax.status === 200) {
+    // Data berhasil diterima dan bisa diproses
+}
+
+| readyState | Kapan Terjadi                                                                 |
+| ---------- | ----------------------------------------------------------------------------- |
+| `0`        | Saat kamu **baru membuat** objek `XMLHttpRequest()`                           |
+| `1`        | Setelah kamu memanggil `.open()` (menyusun rencana request)                   |
+| `2`        | Setelah kamu memanggil `.send()`, dan server **sudah membalas header**        |
+| `3`        | Server sedang **mengirim data** dan browser mulai menerimanya sedikit-sedikit |
+| `4`        | Semua data **sudah diterima sepenuhnya**, tinggal diproses                    |
+
+     */
 </script>
+
 </body>
 </html>
