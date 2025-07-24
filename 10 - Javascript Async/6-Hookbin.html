@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kirim Data ke Webhook.site</title>
+</head>
+<body>
+<h3>Mengirim data ke Webhook.site...</h3>
+
+<script>
+    const data = {
+        name: "Budi",
+        email: "budi@email.com"
+    };
+
+    fetch('https://webhook.site/4d639b8e-ae3e-4d47-92e7-abc123def456', {  // Ganti ini!
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            console.log("✅ Terkirim!");
+        })
+        .catch(err => {
+            console.error("❌ Gagal:", err);
+        });
+</script>
+
+</body>
+</html>
