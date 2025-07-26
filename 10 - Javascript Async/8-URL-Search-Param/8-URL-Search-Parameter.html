@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="">
+    <label for="username">
+        Username :
+        <input type="text" id="username" name="username">
+    </label>
+    <br>
+    <label for="password">
+        Password :
+        <input type="text" id="password" name="password">
+    </label>
+    <br>
+    <input type="button" id="Loginsir" value="Login">
+    <label for="search">
+        Search :
+        <input type="text" id="search" name="search">
+
+    </label>
+</form>
+<script>
+    function SearchBang() {
+        const ikiAjax = new XMLHttpRequest();
+        const ikiParam = new URLSearchParams();
+
+        console.log(ikiParam.toString())
+        ikiParam.append("search", document.getElementById("search").value);
+        ikiParam.append("kategori", "riwayat");
+
+        ikiAjax.open("GET",`http://localhost:3000?${ikiParam.toString()}`)
+
+        ikiAjax.onload = function () {
+            console.info(ikiAjax.status)
+            console.info(ikiAjax.responseText)
+        }
+
+        ikiAjax.send()
+    }
+
+    document.getElementById("Loginsir").onclick = SearchBang;
+</script>
+</body>
+</html>
