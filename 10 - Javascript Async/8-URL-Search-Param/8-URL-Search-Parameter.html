@@ -8,44 +8,44 @@
     <title>Document</title>
 </head>
 <body>
+
 <form action="">
-    <label for="username">
-        Username :
-        <input type="text" id="username" name="username">
-    </label>
-    <br>
-    <label for="password">
-        Password :
-        <input type="text" id="password" name="password">
-    </label>
-    <br>
-    <input type="button" id="Loginsir" value="Login">
     <label for="search">
         Search :
         <input type="text" id="search" name="search">
-
     </label>
+    <br>
+    <input type="button" id="BTNsearch" value="Search" >
 </form>
 <script>
     function SearchBang() {
         const ikiAjax = new XMLHttpRequest();
         const ikiParam = new URLSearchParams();
-
         console.log(ikiParam.toString())
+
         ikiParam.append("search", document.getElementById("search").value);
         ikiParam.append("kategori", "riwayat");
 
+                                                    // ikiParam.toString() = konversi ikiParam ke string query karena jika tdk dikonversi masih tetap objek khusus, bukan string
         ikiAjax.open("GET",`http://localhost:3000?${ikiParam.toString()}`)
 
+        // onload akan aktif jika  serah terima data selesai
         ikiAjax.onload = function () {
             console.info(ikiAjax.status)
             console.info(ikiAjax.responseText)
-        }
+            document.body.innerHTML += `<p>${ikiAjax.responseText}</p>`
 
+        }
+        console.log(ikiParam.toString()); // "search=unta&kategori=riwayat"
+
+        // kirim request diatas ke server, setelah serah terima data selesai maka onload aktif
         ikiAjax.send()
+
+
     }
 
-    document.getElementById("Loginsir").onclick = SearchBang;
+    // akan aktifkan function SearchBang ketika id BTNsearch diklik
+    document.getElementById("BTNsearch").onclick = SearchBang;
 </script>
 </body>
 </html>
