@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>INI form data  dengan AJAX</h1>
+<form action="">
+    <label for="username">
+        Username :
+        <input type="text" id="username" name="username">
+    </label>
+    <br>
+    <label for="password">
+        Password :
+        <input type="text" id="password" name="password">
+    </label>
+    <br>
+    <input type="button" id="Loginsir" value="Login">
+</form>
+<script>
+    function kiLogin() {
+        const kiAjax = new XMLHttpRequest();
+        kiAjax.open("POST", 'https://01k17akvgmakyv7bmg5bsnr4jh00-5c220fb359007279832e.requestinspector.com')
+        kiAjax.onload = function (){
+            console.info(kiAjax.responseText)
+        }
+        kiAjax.setRequestHeader("Content-Type", 'application/x-www-form-urlencoded');
+
+        const kiForm = new URLSearchParams();
+        kiForm.append("username", document.getElementById("username").value);
+        kiForm.append("password", document.getElementById("password").value);
+
+        kiAjax.send(kiForm)
+    }
+
+    document.getElementById("Loginsir").onclick = kiLogin
+
+</script>
+</body>
+</html>
