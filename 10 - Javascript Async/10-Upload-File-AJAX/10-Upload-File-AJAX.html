@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Register</h1>
+<form action="">
+    <label for="username">
+        Username :
+        <input type="text" id="username" name="username">
+    </label>
+    <br>
+    <label for="password">
+        Password :
+        <input type="text" id="password" name="password">
+    </label> <br>
+    <label for="profile">
+        File :
+        <input type="file" id="profile" name="profile">
+    </label>
+    <br>
+    <input type="button" id="Register" value="Register">
+</form>
+<script>
+
+    function ikiRegisrasi() {
+        const kiAjax = new XMLHttpRequest();
+        kiAjax.open("POST", "http://localhost:3000")
+        kiAjax.onload = function () {
+            console.info(kiAjax.responseText)
+        }
+
+        const Tform = new FormData();
+        Tform.append("username", document.getElementById("username").value);
+        Tform.append("password", document.getElementById("password").value);
+        Tform.append("profile", document.getElementById("profile").files.item(0))
+
+        kiAjax.send(Tform)
+    }
+
+    document.getElementById("Register").onclick = ikiRegisrasi
+</script>
+</body>
+</html>
