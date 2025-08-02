@@ -20,4 +20,6 @@ console.log("3. Selesai")
     a -> selesai -> b -> selesai -> c -> selesai -> d -> selesai,
 
     jadi harus nunggu kode atas selesai dijalankan, baru jalankan kode bawah
+
+    ini membuat kurang efektif, harus nunggu atas baru bawah
  */
