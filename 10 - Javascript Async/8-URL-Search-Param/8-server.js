@@ -17,6 +17,7 @@ Salin kode
 }
      */
     const iKiquery = iKiurl.parse(request.url, true). query;
+    // ikiSearch berisi apakah ada value pada key search? jika ada cetak jika tidak ada  cetak 'tidak ada'
     const iKiSearch = iKiquery.search || 'tidak ada';
 
     /*
@@ -30,7 +31,7 @@ Misalnya: client jalan di localhost:5500, server di localhost:3000 → beda port
 
     respon.writeHead(200, { 'Content-Type' : 'text/plain'});
    // respon.end(...) → mengirim teks ke browser dan mengakhiri respon
-    respon.end(`Kamu mennncari : ${iKiSearch}`); //
+    respon.end(`Kamu mennncari : ${iKiSearch}`); // http://localhost:3000/?search=makan&kategori=riwayat , untuk akses respons server
 }).listen(3000, () => {
     console.log('Server berjalan di http://localhost:3000')
 });
