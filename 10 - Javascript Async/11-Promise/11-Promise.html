@@ -5,36 +5,54 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> dor promise </title>
+    <title> membuat promise </title>
 </head>
 <body>
-<h1>Data produk : </h1>
-<pre id="output"></pre>
+<pre id="output">Loading ....</pre>
 <script>
-    function DapatProduct(){
+
+
+    function getBarang() {
         return new Promise(function (resolve, reject) {
             const Kiajax = new XMLHttpRequest();
-            Kiajax.open("GET", "api/status.json");
-            Kiajax.onload = function () {
+            Kiajax.open("GET", "status.json")
+            Kiajax.onload = function (){
                 if (Kiajax.status === 200) {
                     resolve(JSON.parse(Kiajax.responseText))
                 } else {
-                    reject(Kiajax.responseText)
+                    reject("Gagal ambil data : " + Kiajax.status)
                 }
-
+            }
+            Kiajax.onerror = function (){
+                reject("terjadi kesahlan jaringan")
             }
             Kiajax.send();
         })
     }
 
-
-    DapatProduct()
-        .then(function (data) {
-            document.getElementById("output").textContent = JSON.stringify(data, null, 2)
+    getBarang()
+        .then(function (result) {
+            // berhasil      
+            //              JSON.stringify = ubah objek js jadi string JSON                                result = objek yang ingin diubah ke text, null = replacer (tdk difilter), 2020 = spasi indentasi buat rapi
+            document.getElementById("output").textContent = JSON.stringify(result, null, 2020)
         })
-        .catch(function (err){
-            document.getElementById("output").textContent = "Error : " + err;
-        });
+        .catch(function (error) {
+            // gagal
+            document.getElementById("output").textContent = "Error : " + error
+        })
+    
+    /*
+    gambar alur return new Promise
+    
+    graph TD
+    A[function getBarang()] --> B[return Promise object]
+    B --> C[Promise masuk ke .then()]
+    C --> D[Proses async di dalam Promise jalan]
+    D --> E{Sukses?}
+    E -- Ya --> F[resolve(data)] --> G[Panggil .then()]
+    E -- Tidak --> H[reject(error)] --> I[Panggil .catch()]
+
+     */
 </script>
 </body>
 </html>
