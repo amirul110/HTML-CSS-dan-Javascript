@@ -10,14 +10,14 @@
 <body>
 <pre id="output">Loading ....</pre>
 <script>
-
-
+    
     function getBarang() {
         return new Promise(function (resolve, reject) {
             const Kiajax = new XMLHttpRequest();
-            Kiajax.open("GET", "status.json")
+            Kiajax.open("GET", "sta2tus.json")
             Kiajax.onload = function (){
                 if (Kiajax.status === 200) {
+                    // Mengubah string JSON menjadi objek JavaScript
                     resolve(JSON.parse(Kiajax.responseText))
                 } else {
                     reject("Gagal ambil data : " + Kiajax.status)
@@ -32,18 +32,18 @@
 
     getBarang()
         .then(function (result) {
-            // berhasil      
+            // berhasil
             //              JSON.stringify = ubah objek js jadi string JSON                                result = objek yang ingin diubah ke text, null = replacer (tdk difilter), 2020 = spasi indentasi buat rapi
-            document.getElementById("output").textContent = JSON.stringify(result, null, 2020)
+            document.getElementById("output").textContent = JSON.stringify(result, null, 2)
         })
         .catch(function (error) {
             // gagal
             document.getElementById("output").textContent = "Error : " + error
         })
-    
+
     /*
     gambar alur return new Promise
-    
+
     graph TD
     A[function getBarang()] --> B[return Promise object]
     B --> C[Promise masuk ke .then()]
