@@ -12,9 +12,10 @@
 <script>
     
     function getBarang() {
+        // return di getBarang() itu tujuannya mengembalikan objek Promise ke luar, supaya si pemanggil bisa langsung pakai .then() dan .catch().
         return new Promise(function (resolve, reject) {
             const Kiajax = new XMLHttpRequest();
-            Kiajax.open("GET", "sta2tus.json")
+            Kiajax.open("GET", "status.json")
             Kiajax.onload = function (){
                 if (Kiajax.status === 200) {
                     // Mengubah string JSON menjadi objek JavaScript
