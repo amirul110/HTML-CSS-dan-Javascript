@@ -31,6 +31,7 @@
         })
     }
 
+    // apakah Promise ini hanya aktif kalau getBarang() dipanggil?
     getBarang()
         .then(function (result) {
             // berhasil
@@ -53,6 +54,52 @@
     E -- Ya --> F[resolve(data)] --> G[Panggil .then()]
     E -- Tidak --> H[reject(error)] --> I[Panggil .catch()]
 
+
+Urutan eksekusi ketika getBarang() dipanggil
+Panggil getBarang()
+
+js
+Salin kode
+getBarang()
+JavaScript masuk ke dalam fungsi getBarang.
+
+Buat Promise
+
+js
+Salin kode
+return new Promise(function (resolve, reject) {
+    // callback ini langsung dieksekusi saat Promise dibuat
+});
+Promise ini langsung memanggil callback (resolve, reject) tadi.
+
+Semua baris di dalamnya (const Kiajax = new XMLHttpRequest(); ...) dijalankan saat itu juga.
+
+Jadi AJAX request mulai dikirim sekarang juga.
+
+Kirim AJAX
+
+js
+Salin kode
+const Kiajax = new XMLHttpRequest();
+Kiajax.open("GET", "status.json");
+Kiajax.onload = function() { ... };
+Kiajax.onerror = function() { ... };
+Kiajax.send();
+Setelah send(), fungsi getBarang() langsung selesai dan mengembalikan objek Promise (statusnya masih pending).
+
+Proses request HTTP berjalan di background (asynchronous).
+
+Keluar dari getBarang()
+Pemanggil sekarang punya Promise object yang bisa dipakai:
+
+js
+Salin kode
+getBarang().then(...).catch(...);
+Ketika response dari server datang:
+
+Kalau status === 200 → panggil resolve(data) → .then() yang tadi kamu tulis akan dieksekusi.
+
+Kalau status !== 200 atau terjadi error jaringan → panggil reject(error) → .catch() akan dieksekusi
      */
 </script>
 </body>
