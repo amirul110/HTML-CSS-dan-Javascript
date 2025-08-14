@@ -16,5 +16,5 @@ console.log(delete arrayNIM[2]); // meghapus index 2
 console.table(arrayNIM);
 
 
-arrayNIM[2] = 200;
+arrayNIM[2] = 200; // mengganti indek ke 2 menjadi  value 200
 console.table(arrayNIM)
